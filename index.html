@@ -87,6 +87,15 @@
       transform: translateY(3px) scale(0.99);
       box-shadow: 0 1px 2px rgba(194, 65, 12, 0.3);
     }
+
+    /* 凍結置頂導航欄在滾動時的立體平滑陰影 */
+    .sticky-detail-nav {
+      position: sticky;
+      top: 68px; /* 緊貼頂部 Header 下方 */
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
   </style>
 </head>
 <body class="text-warm-950 antialiased min-h-screen flex flex-col font-sans text-lg">
@@ -191,38 +200,41 @@
     </div>
 
     <!-- ========================================================
-         第二層視圖：子項目詳情頁 (嚴格 2 個區塊)
+         第二層視圖：子項目詳情頁 (嚴格 2 個區塊 + 凍結置頂導航)
          ======================================================== -->
     <div id="view-detail" class="hidden space-y-4 sm:space-y-6">
 
-      <!-- 頂部返回大按鈕 -->
-      <button 
-        onclick="goHome()"
-        class="btn-3d w-full py-4 sm:py-5 px-4 rounded-3xl bg-white hover:bg-warm-50 text-warm-950 font-black text-xl sm:text-2xl border-3 border-warm-300 shadow-sm flex items-center justify-center gap-2.5 active:translate-y-0.5"
-      >
-        <i class="ph-bold ph-arrow-left text-2xl text-warm-600"></i>
-        <span>⬅ 返回保險公司清單</span>
-      </button>
+      <!-- 凍結視窗置頂導航群組：包含「返回按鈕」與「橘色公司名稱橫幅」 -->
+      <div class="sticky-detail-nav bg-[#fbf9f4]/95 pt-1.5 pb-2.5 -mx-2 px-2 space-y-2 sm:space-y-3 transition-all duration-200 shadow-sm sm:shadow-none border-b sm:border-b-0 border-warm-200/60">
+        
+        <!-- 頂部返回大按鈕 (好按、防手震) -->
+        <button 
+          onclick="goHome()"
+          class="btn-3d w-full py-3 sm:py-4 px-4 rounded-2xl bg-white hover:bg-warm-50 text-warm-950 font-black text-lg sm:text-2xl border-2 sm:border-3 border-warm-300 shadow-xs flex items-center justify-center gap-2 active:translate-y-0.5"
+        >
+          <i class="ph-bold ph-arrow-left text-xl sm:text-2xl text-warm-600"></i>
+          <span>⬅ 返回保險公司清單</span>
+        </button>
 
-      <!-- 公司大標題橫幅 -->
-      <div class="rounded-3xl p-4 sm:p-6 bg-gradient-to-r from-warm-600 to-warm-500 text-white border-2 border-warm-700 shadow-md flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3.5">
-          <div id="detail-code-badge" class="px-3.5 py-1.5 rounded-2xl bg-white/25 border-2 border-white/40 text-white font-mono font-black text-2xl sm:text-3xl shadow-inner">
-            A01
-          </div>
-          <div>
-            <h2 id="detail-company-title" class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+        <!-- 橘色公司大標題橫幅 (凍結置頂！滑動時永遠看得見，絕不迷路) -->
+        <div class="rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 bg-gradient-to-r from-warm-600 to-warm-500 text-white border-2 border-warm-700 shadow-md flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+            <div id="detail-code-badge" class="px-3 py-1 rounded-xl sm:rounded-2xl bg-white/25 border-2 border-white/40 text-white font-mono font-black text-xl sm:text-3xl shadow-inner shrink-0">
+              A01
+            </div>
+            <h2 id="detail-company-title" class="text-xl sm:text-3xl font-black text-white tracking-tight truncate">
               國泰人壽
             </h2>
           </div>
+          <div id="detail-item-count-badge" class="px-3 py-1 rounded-full text-xs sm:text-base font-black bg-white text-warm-900 shadow-xs shrink-0">
+            共 1 個項目
+          </div>
         </div>
-        <div id="detail-item-count-badge" class="px-3.5 py-1.5 rounded-full text-sm sm:text-base font-black bg-white text-warm-900 shadow-sm shrink-0">
-          共 1 個項目
-        </div>
+
       </div>
 
       <!-- 旗下功能卡片清單 (嚴格只有 2 個區塊) -->
-      <div id="detail-items-container" class="space-y-5 sm:space-y-6">
+      <div id="detail-items-container" class="space-y-5 sm:space-y-6 pt-1">
         <!-- 由 JavaScript 動態生成功能大卡片 -->
       </div>
 
