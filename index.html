@@ -99,7 +99,7 @@
     }
     .company-big-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 28px -6px rgba(234, 88, 12, 0.18);
+      box-shadow: 0 12px 24px -6px rgba(234, 88, 12, 0.16);
       border-color: #ea580c;
     }
     .company-big-card:active {
@@ -151,51 +151,51 @@
   </header>
 
   <!-- 主內容容器 -->
-  <main class="max-w-5xl w-full mx-auto px-4 sm:px-6 pt-5 pb-20 flex-1">
+  <main class="max-w-5xl w-full mx-auto px-3 sm:px-6 pt-4 sm:pt-5 pb-20 flex-1">
 
     <!-- ========================================================
          第一層視圖：公司總覽主清單 (預設顯示 100% 確保可見)
          ======================================================== -->
-    <div id="view-home" class="space-y-5">
+    <div id="view-home" class="space-y-4 sm:space-y-5">
 
       <!-- 步驟 1 醒目橫幅 -->
-      <div class="bg-white rounded-3xl p-4 sm:p-5 border-2 border-warm-150 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border-2 border-warm-150 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="flex items-start gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-warm-100 text-warm-600 flex items-center justify-center text-xl shrink-0 mt-0.5 border border-warm-200">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-warm-100 text-warm-600 flex items-center justify-center text-lg sm:text-xl shrink-0 mt-0.5 border border-warm-200">
             <i class="ph-fill ph-hand-pointing"></i>
           </div>
           <div>
             <div class="text-xs font-black text-warm-600 tracking-wider">
               👉 步驟 1 ． 選擇分類
             </div>
-            <h2 class="text-lg sm:text-xl font-black text-warm-900 mt-0.5">
+            <h2 class="text-base sm:text-xl font-black text-warm-900 mt-0.5">
               請選擇您要查詢「壽險」還是「產險」？
             </h2>
           </div>
         </div>
-        <div class="inline-flex items-center self-start sm:self-center gap-1.5 px-3.5 py-2 rounded-xl bg-warm-50 text-warm-800 text-xs font-black border border-warm-200">
+        <div class="inline-flex items-center self-start sm:self-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-warm-50 text-warm-800 text-xs font-black border border-warm-200">
           <i class="ph-bold ph-cursor-click text-warm-500"></i>
           <span>點選下方大按鈕即可切換</span>
         </div>
       </div>
 
       <!-- 壽險 / 產險 超大立體切換按鈕 -->
-      <div class="grid grid-cols-2 gap-3 sm:gap-4 p-2 bg-warm-100 rounded-3xl border-2 border-warm-200">
+      <div class="grid grid-cols-2 gap-2 sm:gap-4 p-1.5 sm:p-2 bg-warm-100 rounded-2xl sm:rounded-3xl border-2 border-warm-200">
         
         <!-- 壽險按鈕 -->
         <button 
           id="btn-tab-life" 
           onclick="setTab('壽險')"
-          class="btn-3d py-4 px-3 sm:px-4 rounded-2xl font-black text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5"
+          class="btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5"
         >
-          <div class="flex items-center gap-2">
-            <i class="ph-bold ph-heartbeat text-xl text-warm-100"></i>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <i class="ph-bold ph-heartbeat text-lg sm:text-xl text-warm-100"></i>
             <span>壽險公司 (16)</span>
           </div>
-          <span id="badge-tab-life" class="inline-flex items-center gap-2 text-xs sm:text-sm px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner">
-            <span class="relative flex h-3.5 w-3.5 items-center justify-center">
+          <span id="badge-tab-life" class="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner">
+            <span class="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 breathing-beacon-glow border border-white"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-400 breathing-beacon-glow border border-white"></span>
             </span>
             <span>目前選取中</span>
           </span>
@@ -205,70 +205,92 @@
         <button 
           id="btn-tab-property" 
           onclick="setTab('產險')"
-          class="btn-3d py-4 px-3 sm:px-4 rounded-2xl font-bold text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50"
+          class="btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50"
         >
-          <div class="flex items-center gap-2">
-            <i class="ph-bold ph-car text-xl text-warm-600"></i>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <i class="ph-bold ph-car text-lg sm:text-xl text-warm-600"></i>
             <span>產險公司 (9)</span>
           </div>
-          <span id="badge-tab-property" class="text-xs px-2.5 py-0.5 rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200">
+          <span id="badge-tab-property" class="text-[11px] sm:text-xs px-2 py-0.5 rounded-md sm:rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200">
             點我切換
           </span>
         </button>
 
       </div>
 
-      <!-- 步驟 2 醒目提示 -->
-      <div class="flex items-center justify-between pt-2">
+      <!-- 步驟 2 醒目提示 + 視圖切換器 (雙欄宮格 vs 清單模式) -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-1">
         <div class="flex items-center gap-2">
-          <span class="w-6 h-6 rounded-lg bg-warm-600 text-white flex items-center justify-center text-xs font-black shadow-xs">2</span>
-          <h3 class="text-sm sm:text-base font-black text-warm-900">
-            👉 步驟 2 ． 再點選欲查詢的保險公司（點入查看所有連結與帳密）：
+          <span class="w-6 h-6 rounded-lg bg-warm-600 text-white flex items-center justify-center text-xs font-black shadow-xs shrink-0">2</span>
+          <h3 class="text-xs sm:text-base font-black text-warm-900">
+            👉 步驟 2 ． 再點選欲查詢的保險公司：
           </h3>
+          <span id="status-display-label" class="hidden md:inline-block text-xs font-black px-2.5 py-0.5 rounded-lg bg-warm-100 text-warm-800 border border-warm-200">
+            壽險專區 (16家)
+          </span>
         </div>
-        <span id="status-display-label" class="text-xs font-black px-3 py-1 rounded-xl bg-warm-100 text-warm-800 border border-warm-200">
-          壽險專區 (16家)
-        </span>
+
+        <!-- 模式切換按鈕 (手機超實用) -->
+        <div class="inline-flex self-start sm:self-auto items-center p-1 rounded-xl bg-warm-100 border border-warm-200 shadow-2xs">
+          <button 
+            id="view-mode-grid" 
+            onclick="setViewMode('grid')" 
+            class="px-2.5 py-1 rounded-lg text-xs font-black transition-all flex items-center gap-1 bg-warm-600 text-white shadow-xs"
+            title="手機雙欄 / 電腦三欄宮格模式"
+          >
+            <i class="ph-bold ph-squares-four text-sm"></i>
+            <span>雙欄宮格</span>
+          </button>
+          <button 
+            id="view-mode-list" 
+            onclick="setViewMode('list')" 
+            class="px-2.5 py-1 rounded-lg text-xs font-bold text-warm-800 hover:text-warm-950 transition-all flex items-center gap-1"
+            title="寬版清單模式"
+          >
+            <i class="ph-bold ph-rows text-sm"></i>
+            <span>大卡清單</span>
+          </button>
+        </div>
       </div>
 
-      <!-- 保險公司「超大卡片網格清單」 (預設自動填入壽險 16 家大按鈕) -->
-      <div id="company-card-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-        <!-- 由 JavaScript 動態生成超大卡片按鈕 -->
+      <!-- 保險公司卡片網格清單 (手機預設 2 欄 grid-cols-2，電腦 3 欄 md:grid-cols-3) -->
+      <div id="company-card-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+        <!-- 由 JavaScript 動態生成卡片按鈕 -->
       </div>
 
     </div>
 
     <!-- ========================================================
-         第二層視圖：子項目詳情頁 (預設隱藏，點擊大卡片後才顯示)
+         第二層視圖：子項目詳情頁 (點擊大卡片後顯示)
          ======================================================== -->
-    <div id="view-detail" class="hidden space-y-5">
+    <div id="view-detail" class="hidden space-y-4 sm:space-y-5">
 
       <!-- 頂部返回大按鈕 -->
       <button 
         onclick="goHome()"
-        class="btn-3d w-full py-4 px-5 rounded-2xl bg-white hover:bg-warm-50 text-warm-900 font-black text-base sm:text-lg border-2 border-warm-200 shadow-sm flex items-center justify-center gap-2.5 active:translate-y-0.5"
+        class="btn-3d w-full py-3.5 sm:py-4 px-4 sm:px-5 rounded-2xl bg-white hover:bg-warm-50 text-warm-900 font-black text-sm sm:text-lg border-2 border-warm-200 shadow-sm flex items-center justify-center gap-2 active:translate-y-0.5"
       >
-        <i class="ph-bold ph-arrow-left text-xl text-warm-600"></i>
+        <i class="ph-bold ph-arrow-left text-lg sm:text-xl text-warm-600"></i>
         <span>⬅ 返回保險公司清單</span>
       </button>
 
       <!-- 該公司標題橫幅 -->
-      <div class="rounded-3xl p-5 sm:p-6 bg-gradient-to-r from-warm-600 to-warm-500 text-white border-2 border-warm-700 shadow-md flex items-center justify-between">
-        <div class="flex items-center gap-3.5">
-          <div id="detail-code-badge" class="px-3.5 py-1.5 rounded-2xl bg-white/20 border border-white/30 text-white font-mono font-black text-xl shadow-inner">
+      <div class="rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-gradient-to-r from-warm-600 to-warm-500 text-white border-2 border-warm-700 shadow-md flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div id="detail-code-badge" class="px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-xl sm:rounded-2xl bg-white/20 border border-white/30 text-white font-mono font-black text-lg sm:text-xl shadow-inner">
             A09
           </div>
           <div>
-            <h2 id="detail-company-title" class="text-xl sm:text-2xl font-black text-white tracking-tight">
+            <h2 id="detail-company-title" class="text-lg sm:text-2xl font-black text-white tracking-tight">
               臺銀人壽
             </h2>
-            <p class="text-xs text-warm-100 mt-1 font-medium">
+            <p class="text-[11px] sm:text-xs text-warm-100 mt-0.5 font-medium">
               點擊右上角「點此開啟」即可開啟連結，下方備有帳密說明與快速複製
             </p>
           </div>
         </div>
-        <div id="detail-item-count-badge" class="px-3.5 py-1.5 rounded-full text-xs font-black bg-white text-warm-800 shadow-xs">
-          共 3 個常用項目
+        <div id="detail-item-count-badge" class="px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-black bg-white text-warm-800 shadow-xs shrink-0">
+          共 3 個項目
         </div>
       </div>
 
@@ -280,7 +302,7 @@
       <!-- 底部額外備用返回按鈕 -->
       <button 
         onclick="goHome()"
-        class="btn-3d w-full py-3.5 px-4 rounded-2xl bg-warm-100 hover:bg-warm-200 text-warm-800 font-bold text-sm border-2 border-warm-200 flex items-center justify-center gap-2"
+        class="btn-3d w-full py-3 px-4 rounded-xl sm:rounded-2xl bg-warm-100 hover:bg-warm-200 text-warm-800 font-bold text-xs sm:text-sm border-2 border-warm-200 flex items-center justify-center gap-2"
       >
         <i class="ph-bold ph-arrow-up text-base"></i>
         <span>返回頂部或換一家查詢</span>
@@ -291,8 +313,8 @@
   </main>
 
   <!-- 複製成功的 Toast 提示浮窗 -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-warm-900 text-white px-5 py-3 rounded-2xl text-sm font-bold shadow-xl border border-warm-700 opacity-0 pointer-events-none transform translate-y-3 transition-all duration-200 flex items-center gap-2">
-    <i class="ph-bold ph-check-circle text-warm-200 text-lg"></i>
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-warm-900 text-white px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold shadow-xl border border-warm-700 opacity-0 pointer-events-none transform translate-y-3 transition-all duration-200 flex items-center gap-2">
+    <i class="ph-bold ph-check-circle text-warm-200 text-base sm:text-lg"></i>
     <span id="toast-text">已成功複製到剪貼簿</span>
   </div>
 
@@ -1079,12 +1101,31 @@
       }
     ];
 
-    // 當前分類狀態（預設「壽險」）
+    // 當前狀態：分類（壽險/產險）與排版模式（grid/list）
     let currentTab = "壽險";
+    let currentViewMode = "grid"; // 'grid' (手機雙欄/電腦三欄) 或 'list' (單欄清單)
 
     /* =========================================================
-       核心切換邏輯 (嚴格確保預設渲染第一層主清單)
+       切換視圖模式 (雙欄宮格 vs 清單大卡)
        ========================================================= */
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      const btnGrid = document.getElementById("view-mode-grid");
+      const btnList = document.getElementById("view-mode-list");
+      const grid = document.getElementById("company-card-grid");
+
+      if (mode === "grid") {
+        btnGrid.className = "px-2.5 py-1 rounded-lg text-xs font-black transition-all flex items-center gap-1 bg-warm-600 text-white shadow-xs";
+        btnList.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-warm-800 hover:text-warm-950 transition-all flex items-center gap-1";
+        grid.className = "grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4";
+      } else {
+        btnList.className = "px-2.5 py-1 rounded-lg text-xs font-black transition-all flex items-center gap-1 bg-warm-600 text-white shadow-xs";
+        btnGrid.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-warm-800 hover:text-warm-950 transition-all flex items-center gap-1";
+        grid.className = "grid grid-cols-1 gap-2.5 sm:gap-4";
+      }
+
+      renderCompanyCards();
+    }
 
     // 1. 切換 壽險 / 產險 分類
     function setTab(tab) {
@@ -1097,30 +1138,30 @@
 
       // 超大雙層呼吸燈 HTML 標籤
       const activeBeaconHtml = `
-        <span class="relative flex h-3.5 w-3.5 items-center justify-center">
+        <span class="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 breathing-beacon-glow border border-white"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-400 breathing-beacon-glow border border-white"></span>
         </span>
         <span>目前選取中</span>
       `;
 
       if (tab === "壽險") {
-        btnLife.className = "btn-3d py-4 px-3 sm:px-4 rounded-2xl font-black text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5";
-        badgeLife.className = "inline-flex items-center gap-2 text-xs sm:text-sm px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
+        btnLife.className = "btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5";
+        badgeLife.className = "inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
         badgeLife.innerHTML = activeBeaconHtml;
 
-        btnProperty.className = "btn-3d py-4 px-3 sm:px-4 rounded-2xl font-bold text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50";
-        badgeProperty.className = "text-xs px-2.5 py-0.5 rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200";
+        btnProperty.className = "btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50";
+        badgeProperty.className = "text-[11px] sm:text-xs px-2 py-0.5 rounded-md sm:rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200";
         badgeProperty.textContent = "點我切換";
 
         statusLabel.textContent = "壽險專區 (16家)";
       } else {
-        btnProperty.className = "btn-3d py-4 px-3 sm:px-4 rounded-2xl font-black text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5";
-        badgeProperty.className = "inline-flex items-center gap-2 text-xs sm:text-sm px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
+        btnProperty.className = "btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700 active:translate-y-0.5";
+        badgeProperty.className = "inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
         badgeProperty.innerHTML = activeBeaconHtml;
 
-        btnLife.className = "btn-3d py-4 px-3 sm:px-4 rounded-2xl font-bold text-base sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50";
-        badgeLife.className = "text-xs px-2.5 py-0.5 rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200";
+        btnLife.className = "btn-3d py-3 sm:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-lg flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-800 border-2 border-warm-200 hover:bg-warm-50";
+        badgeLife.className = "text-[11px] sm:text-xs px-2 py-0.5 rounded-md sm:rounded-lg font-bold bg-warm-100 text-warm-800 border border-warm-200";
         badgeLife.textContent = "點我切換";
 
         statusLabel.textContent = "產險專區 (9家)";
@@ -1129,45 +1170,78 @@
       renderCompanyCards();
     }
 
-    // 2. 渲染第一層：保險公司大卡片清單 (超大按鈕卡片)
+    // 2. 渲染第一層：保險公司卡片清單 (支援手機精緻雙欄與清單切換)
     function renderCompanyCards() {
       const grid = document.getElementById("company-card-grid");
       if (!grid) return;
 
       const list = INSURANCE_DATA.filter(c => c.type === currentTab);
+      const isGrid = (currentViewMode === "grid");
 
-      grid.innerHTML = list.map(c => `
-        <div 
-          onclick="openDetail('${c.id}')"
-          class="company-big-card bg-white rounded-3xl p-5 border-2 border-warm-150 shadow-xs flex flex-col justify-between group"
-        >
-          <!-- 卡片頂部：代號與連結數 -->
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-sm font-black px-3.5 py-1.5 rounded-xl bg-warm-100 text-warm-800 border border-warm-200">
-              ${c.code}
-            </span>
-            <span class="text-xs font-bold text-warm-700 bg-warm-50 px-3 py-1 rounded-full border border-warm-150">
-              ${c.items.length} 個連結
-            </span>
-          </div>
+      grid.innerHTML = list.map(c => {
+        if (isGrid) {
+          // 📱 雙欄宮格緊緻模式 (手機直向排版專用，文字精巧不截斷)
+          return `
+            <div 
+              onclick="openDetail('${c.id}')"
+              class="company-big-card bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-5 border-2 border-warm-150 shadow-2xs flex flex-col justify-between group"
+            >
+              <!-- 卡片頂部：代號與連結數 -->
+              <div class="flex items-center justify-between gap-1">
+                <span class="font-mono text-xs sm:text-sm font-black px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg sm:rounded-xl bg-warm-100 text-warm-800 border border-warm-200">
+                  ${c.code}
+                </span>
+                <span class="text-[10px] sm:text-xs font-bold text-warm-700 bg-warm-50 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-warm-150">
+                  ${c.items.length} 連結
+                </span>
+              </div>
 
-          <!-- 卡片主體：公司名稱與進入提示 -->
-          <div class="mt-5 pt-1">
-            <h3 class="text-xl sm:text-2xl font-black text-warm-900 group-hover:text-warm-600 transition-colors tracking-tight">
-              ${c.name}
-            </h3>
-            
-            <div class="mt-4 pt-3 border-t border-warm-100 flex items-center justify-between text-xs font-black text-warm-700 group-hover:text-warm-900">
-              <span class="flex items-center gap-1.5">
-                <span class="text-sm">👆</span> 點擊查看帳密與連結
-              </span>
-              <div class="w-7 h-7 rounded-full bg-warm-100 group-hover:bg-warm-600 group-hover:text-white flex items-center justify-center transition-all">
-                <i class="ph-bold ph-caret-right text-base text-warm-500 group-hover:text-white"></i>
+              <!-- 卡片主體：公司名稱 -->
+              <div class="mt-2.5 sm:mt-5 pt-0.5 sm:pt-1">
+                <h3 class="text-sm sm:text-xl font-black text-warm-900 group-hover:text-warm-600 transition-colors tracking-tight truncate sm:whitespace-normal">
+                  ${c.name}
+                </h3>
+                
+                <div class="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-warm-100 flex items-center justify-between text-[11px] sm:text-xs font-black text-warm-700 group-hover:text-warm-900">
+                  <span class="flex items-center gap-1">
+                    <span class="text-xs">👆</span> 點擊查看
+                  </span>
+                  <div class="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-warm-100 group-hover:bg-warm-600 group-hover:text-white flex items-center justify-center transition-all">
+                    <i class="ph-bold ph-caret-right text-xs sm:text-base text-warm-500 group-hover:text-white"></i>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      `).join("");
+          `;
+        } else {
+          // 📋 寬版清單模式
+          return `
+            <div 
+              onclick="openDetail('${c.id}')"
+              class="company-big-card bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 border-2 border-warm-150 shadow-xs flex items-center justify-between group"
+            >
+              <div class="flex items-center gap-3 sm:gap-4">
+                <span class="font-mono text-sm sm:text-base font-black px-3 py-1.5 rounded-xl bg-warm-100 text-warm-800 border border-warm-200">
+                  ${c.code}
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-xl font-black text-warm-900 group-hover:text-warm-600 transition-colors tracking-tight">
+                    ${c.name}
+                  </h3>
+                  <span class="text-xs font-semibold text-warm-700">收錄 ${c.items.length} 個常用連結與規則</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 text-xs font-black text-warm-800">
+                <span class="hidden sm:inline">查看帳密</span>
+                <div class="w-8 h-8 rounded-full bg-warm-100 group-hover:bg-warm-600 group-hover:text-white flex items-center justify-center transition-all">
+                  <i class="ph-bold ph-caret-right text-base text-warm-500 group-hover:text-white"></i>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }).join("");
     }
 
     // 3. 點擊進入第二層：單一公司細項
@@ -1183,7 +1257,7 @@
       // 填入公司標題
       document.getElementById("detail-code-badge").textContent = company.code;
       document.getElementById("detail-company-title").textContent = company.name;
-      document.getElementById("detail-item-count-badge").textContent = `共 ${company.items.length} 個常用項目`;
+      document.getElementById("detail-item-count-badge").textContent = `共 ${company.items.length} 個項目`;
 
       const container = document.getElementById("detail-items-container");
 
@@ -1192,20 +1266,20 @@
         const isExternal = item.url && item.url !== "#";
 
         return `
-          <article class="feature-card bg-warm-50 rounded-3xl border-2 border-warm-150 shadow-xs overflow-hidden">
+          <article class="feature-card bg-warm-50 rounded-2xl sm:rounded-3xl border-2 border-warm-150 shadow-xs overflow-hidden">
             
             <!-- 上方重點：蜜糖暖黃標題橫列 (如：商品文件業務專區) -->
-            <div class="p-4 sm:p-5 bg-gradient-to-r from-warm-100 via-warm-100 to-warm-50 text-warm-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-warm-150">
+            <div class="p-3.5 sm:p-5 bg-gradient-to-r from-warm-100 via-warm-100 to-warm-50 text-warm-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-warm-150">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-white text-warm-600 flex items-center justify-center text-xl font-bold shrink-0 border border-warm-200 shadow-xs">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-white text-warm-600 flex items-center justify-center text-lg sm:text-xl font-bold shrink-0 border border-warm-200 shadow-xs">
                   <i class="ph-bold ph-link-simple"></i>
                 </div>
                 <div>
-                  <h4 class="text-base sm:text-lg font-black tracking-tight leading-snug text-warm-900">
+                  <h4 class="text-sm sm:text-lg font-black tracking-tight leading-snug text-warm-900">
                     ${item.title}
                   </h4>
                   <div class="flex items-center gap-2 mt-0.5">
-                    <span class="text-[11px] font-bold text-warm-700 flex items-center gap-1">
+                    <span class="text-[10px] sm:text-[11px] font-bold text-warm-700 flex items-center gap-1">
                       <span class="w-1.5 h-1.5 rounded-full bg-warm-500"></span>
                       功能重點項目
                     </span>
@@ -1219,11 +1293,11 @@
                   href="${item.url}" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="btn-3d inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-warm-600 hover:bg-warm-700 text-white font-black text-sm tracking-wide shrink-0 border-b-3 border-warm-800 shadow-xs"
+                  class="btn-3d inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-warm-600 hover:bg-warm-700 text-white font-black text-xs sm:text-sm tracking-wide shrink-0 border-b-3 border-warm-800 shadow-xs"
                 >
-                  <span class="anim-pointing-finger text-base">👉</span>
+                  <span class="anim-pointing-finger text-sm sm:text-base">👉</span>
                   <span>點此開啟</span>
-                  <i class="ph-bold ph-arrow-square-out text-warm-100 text-sm"></i>
+                  <i class="ph-bold ph-arrow-square-out text-warm-100 text-xs sm:text-sm"></i>
                 </a>
               ` : `
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-warm-200 text-warm-800 text-xs font-bold shrink-0">
@@ -1233,23 +1307,23 @@
             </div>
 
             <!-- 下方純靜態說明框：回歸純說明，縱向自動折行撐高，手機絕不截斷 -->
-            <div class="p-4 sm:p-5 space-y-3">
+            <div class="p-3.5 sm:p-5 space-y-2.5 sm:space-y-3">
               
               <!-- 用途說明 -->
-              <div class="detail-static-box rounded-2xl p-4 border border-warm-150 shadow-2xs">
-                <div class="text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5 mb-1">
+              <div class="detail-static-box rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-warm-150 shadow-2xs">
+                <div class="text-[11px] sm:text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5 mb-1">
                   <span class="w-2 h-2 rounded-full bg-warm-500"></span>
                   <span>【用途說明】</span>
                 </div>
-                <p class="text-sm sm:text-base font-bold text-warm-900 leading-relaxed break-words">
+                <p class="text-xs sm:text-base font-bold text-warm-900 leading-relaxed break-words">
                   ${item.purpose}
                 </p>
               </div>
 
               <!-- 帳號規則 (純說明＋獨立複製鍵) -->
-              <div class="detail-static-box rounded-2xl p-4 border border-warm-150 shadow-2xs space-y-2">
+              <div class="detail-static-box rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-warm-150 shadow-2xs space-y-2">
                 <div class="flex items-center justify-between">
-                  <div class="text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5">
+                  <div class="text-[11px] sm:text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-warm-500"></span>
                     <span>【帳號規則】</span>
                   </div>
@@ -1257,22 +1331,22 @@
                     <button 
                       type="button"
                       onclick="copyText('${item.copyAccount}', '已複製帳號代碼：${item.copyAccount}')"
-                      class="btn-3d inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black text-warm-800 bg-warm-100 hover:bg-warm-200 border border-warm-300 shadow-xs"
+                      class="btn-3d inline-flex items-center gap-1 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-black text-warm-800 bg-warm-100 hover:bg-warm-200 border border-warm-300 shadow-xs"
                     >
                       <i class="ph-bold ph-copy"></i>
                       <span>複製 ${item.copyAccount}</span>
                     </button>
                   ` : ''}
                 </div>
-                <p class="font-mono text-sm sm:text-base font-extrabold text-warm-900 leading-relaxed break-words">
+                <p class="font-mono text-xs sm:text-base font-extrabold text-warm-900 leading-relaxed break-words">
                   ${item.account}
                 </p>
               </div>
 
               <!-- 密碼規則 (純說明＋獨立複製鍵) -->
-              <div class="detail-static-box rounded-2xl p-4 border border-warm-150 shadow-2xs space-y-2">
+              <div class="detail-static-box rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-warm-150 shadow-2xs space-y-2">
                 <div class="flex items-center justify-between">
-                  <div class="text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5">
+                  <div class="text-[11px] sm:text-xs font-black text-warm-700 tracking-wider flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-warm-500"></span>
                     <span>【密碼規則】</span>
                   </div>
@@ -1280,21 +1354,21 @@
                     <button 
                       type="button"
                       onclick="copyText('${item.copyPassword}', '已複製密碼：${item.copyPassword}')"
-                      class="btn-3d inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black text-warm-800 bg-warm-100 hover:bg-warm-200 border border-warm-300 shadow-xs"
+                      class="btn-3d inline-flex items-center gap-1 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-black text-warm-800 bg-warm-100 hover:bg-warm-200 border border-warm-300 shadow-xs"
                     >
                       <i class="ph-bold ph-copy"></i>
                       <span>複製密碼</span>
                     </button>
                   ` : ''}
                 </div>
-                <p class="text-sm sm:text-base font-extrabold text-warm-900 leading-relaxed break-words">
+                <p class="text-xs sm:text-base font-extrabold text-warm-900 leading-relaxed break-words">
                   ${item.password}
                 </p>
               </div>
 
               <!-- 備註說明 (若有則顯示) -->
               ${item.notes ? `
-                <div class="p-3.5 rounded-2xl bg-white border border-warm-200 flex items-start gap-2.5 text-xs font-bold text-warm-800 leading-relaxed shadow-2xs">
+                <div class="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border border-warm-200 flex items-start gap-2 text-xs font-bold text-warm-800 leading-relaxed shadow-2xs">
                   <i class="ph-fill ph-lightbulb text-warm-500 text-sm mt-0.5 shrink-0"></i>
                   <span>${item.notes}</span>
                 </div>
@@ -1352,8 +1426,8 @@
       // 確保第一層顯示、第二層隱藏
       document.getElementById("view-home").classList.remove("hidden");
       document.getElementById("view-detail").classList.add("hidden");
-      // 渲染大卡片清單
-      renderCompanyCards();
+      // 渲染大卡片清單 (預設為 grid-cols-2 手機雙欄宮格)
+      setViewMode("grid");
     });
   </script>
 </body>
