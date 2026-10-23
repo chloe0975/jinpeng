@@ -25,17 +25,17 @@
             warm: {
               25:  '#ffffff',
               50:  '#fffbf2',
-              100: '#fef3c7', // 區塊 1 蜜糖黃底
+              100: '#fef3c7',
               150: '#fde68a',
               200: '#fed7aa',
               300: '#fdba74',
               400: '#fb923c',
               500: '#f59e0b',
-              600: '#ea580c', // 亮橘主色按鈕
-              700: '#c2410c', // 實體厚底深邊
-              800: '#9a3412', // 粗體標題
-              900: '#7c2d12', // 深色文字
-              950: '#431407', // 超深文字
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+              950: '#431407',
             }
           }
         }
@@ -44,7 +44,6 @@
   </script>
 
   <style>
-    /* 溫潤護眼底色 */
     body {
       background-color: #fbf9f4;
       background-image: 
@@ -54,7 +53,6 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* 手指平滑律動擺動動畫 (👉 指向按鈕) */
     @keyframes fingerPoint {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(8px); }
@@ -64,7 +62,6 @@
       animation: fingerPoint 1.1s infinite ease-in-out;
     }
 
-    /* 超大立體呼吸燈動效 (雙層光暈擴散) */
     @keyframes beaconPulse {
       0% {
         transform: scale(0.95);
@@ -83,7 +80,6 @@
       animation: beaconPulse 1.6s infinite ease-in-out;
     }
 
-    /* 立體大按鈕按壓回饋 */
     .btn-3d {
       transition: all 0.15s ease-out;
     }
@@ -95,7 +91,7 @@
 </head>
 <body class="text-warm-950 antialiased min-h-screen flex flex-col font-sans text-lg">
 
-  <!-- 頂部 Header 導航列（純淨乾淨，無多餘的「字體特大」按鈕） -->
+  <!-- 頂部 Header 導航列 -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-warm-200 shadow-sm">
     <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
       <div class="flex items-center gap-3.5 cursor-pointer select-none" onclick="goHome()">
@@ -120,31 +116,25 @@
          ======================================================== -->
     <div id="view-home" class="space-y-4 sm:space-y-6">
 
-      <!-- 步驟 1 醒目大標題提示卡 -->
-      <div class="bg-white rounded-3xl p-4 sm:p-6 border-2 border-warm-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="flex items-start gap-3.5">
-          <div class="w-12 h-12 rounded-2xl bg-warm-600 text-white flex items-center justify-center text-2xl shrink-0 mt-0.5 shadow-md">
-            <i class="ph-fill ph-hand-pointing"></i>
-          </div>
-          <div>
-            <div class="text-base sm:text-lg font-black text-warm-700 tracking-wider">
-              👉 步驟 1 ． 請先選擇類別
-            </div>
-            <h2 class="text-xl sm:text-2xl font-black text-warm-950 mt-1 leading-snug">
-              您要查詢「壽險」還是「產險」？
-            </h2>
-          </div>
+      <!-- 步驟 1 提示卡 -->
+      <div class="bg-white rounded-3xl p-4 sm:p-6 border-2 border-warm-200 shadow-sm flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-2xl bg-warm-600 text-white flex items-center justify-center text-2xl shrink-0 shadow-md">
+          <i class="ph-fill ph-hand-pointing"></i>
         </div>
-        <div class="inline-flex items-center self-start sm:self-center gap-2 px-4 py-2 rounded-xl bg-warm-100 text-warm-900 text-sm sm:text-base font-black border border-warm-200">
-          <i class="ph-bold ph-cursor-click text-warm-600 text-lg"></i>
-          <span>按下方大按鈕即可切換</span>
+        <div>
+          <div class="text-base sm:text-lg font-black text-warm-700 tracking-wider">
+            👉 步驟 1 ． 請先選擇類別
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black text-warm-950 mt-1 leading-snug">
+            您要查詢「壽險」還是「產險」？
+          </h2>
         </div>
       </div>
 
-      <!-- 壽險 / 產險 超大立體切換按鈕 (大字體、好按壓) -->
+      <!-- 壽險 / 產險 超大切換按鈕 -->
       <div class="grid grid-cols-2 gap-3 sm:gap-4 p-2 bg-warm-100 rounded-3xl border-2 border-warm-200">
         
-        <!-- 壽險按鈕 -->
+        <!-- 壽險按鈕 (16家) -->
         <button 
           id="btn-tab-life" 
           onclick="setTab('壽險')"
@@ -163,7 +153,7 @@
           </span>
         </button>
 
-        <!-- 產險按鈕 -->
+        <!-- 產險按鈕 (10家) -->
         <button 
           id="btn-tab-property" 
           onclick="setTab('產險')"
@@ -171,7 +161,7 @@
         >
           <div class="flex items-center gap-2">
             <i class="ph-bold ph-car text-2xl text-warm-600"></i>
-            <span>產險公司 (9)</span>
+            <span>產險公司 (10)</span>
           </div>
           <span id="badge-tab-property" class="text-sm sm:text-base px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200">
             點我切換
@@ -193,7 +183,7 @@
         </span>
       </div>
 
-      <!-- 保險公司卡片清單 (手機單欄寬敞大卡片) -->
+      <!-- 保險公司卡片清單 (全大字、無冗餘小字) -->
       <div id="company-card-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
         <!-- 由 JavaScript 動態生成超大字卡片 -->
       </div>
@@ -201,11 +191,11 @@
     </div>
 
     <!-- ========================================================
-         第二層視圖：子項目詳情頁 (嚴格只有 2 個區塊)
+         第二層視圖：子項目詳情頁 (嚴格 2 個區塊)
          ======================================================== -->
     <div id="view-detail" class="hidden space-y-4 sm:space-y-6">
 
-      <!-- 頂部返回大按鈕 (好按、防手震) -->
+      <!-- 頂部返回大按鈕 -->
       <button 
         onclick="goHome()"
         class="btn-3d w-full py-4 sm:py-5 px-4 rounded-3xl bg-white hover:bg-warm-50 text-warm-950 font-black text-xl sm:text-2xl border-3 border-warm-300 shadow-sm flex items-center justify-center gap-2.5 active:translate-y-0.5"
@@ -231,7 +221,7 @@
         </div>
       </div>
 
-      <!-- 旗下功能卡片清單 (嚴格只有 2 個區塊，絕無零碎小格子) -->
+      <!-- 旗下功能卡片清單 (嚴格只有 2 個區塊) -->
       <div id="detail-items-container" class="space-y-5 sm:space-y-6">
         <!-- 由 JavaScript 動態生成功能大卡片 -->
       </div>
@@ -257,10 +247,10 @@
 
   <script>
     /* =========================================================
-       金鵬保險業務員內部完整資料庫 (25 家壽產險完整資料)
+       金鵬保險業務員內部完整資料庫 (完整 16 家壽險 + 10 家產險)
        ========================================================= */
     const INSURANCE_DATA = [
-      // -------------------- 壽險 (16 家) --------------------
+      // -------------------- 壽險 (完整 16 家) --------------------
       {
         id: "cathay-a01",
         code: "A01",
@@ -284,7 +274,7 @@
         type: "壽險",
         items: [
           {
-            title: "飛鼠系統【經代專區】",
+            title: "凱基人壽_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "「i-Broker」打建議書、下載表單、查詢客戶資料",
             account: "金鵬內部帳號",
@@ -309,7 +299,7 @@
         type: "壽險",
         items: [
           {
-            title: "飛鼠系統【經代專區】",
+            title: "全球人壽MPOS_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "查詢客戶資料、打建議書、各項行銷工具 (DM/試算表/表單/條款)",
             account: "金鵬帳號",
@@ -374,7 +364,7 @@
         type: "壽險",
         items: [
           {
-            title: "飛鼠系統【經代專區】",
+            title: "宏泰人壽_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "宏泰線上建議書系統、常用各項表單下載",
             account: "金鵬內部帳號",
@@ -405,7 +395,7 @@
             purpose: "投資型保險商品客戶風險屬性評估問卷",
             account: "免帳號",
             password: "免密碼",
-            notes: "投保投資型商品前必填評估。"
+            notes: "⚠️ 做完的風險屬性評估有效期為【一年】，【一年內無法再重新評估】，請務必謹慎填寫！"
           }
         ]
       },
@@ -416,7 +406,7 @@
         type: "壽險",
         items: [
           {
-            title: "飛鼠系統【經代專區】",
+            title: "遠雄人壽_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "遠雄經代線上建議書與業務相關服務",
             account: "金鵬帳號",
@@ -456,28 +446,12 @@
         type: "壽險",
         items: [
           {
-            title: "新光人壽 PRM (飛鼠經代)",
+            title: "新光人壽PRM_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "新光 PRM 建議書系統與客戶管理",
             account: "金鵬帳號",
             password: "金鵬密碼",
             notes: "連進飛鼠後，請點選【經代專區】。"
-          },
-          {
-            title: "新光宣告利率查詢",
-            url: "https://www.skl.com.tw/91d9af4914.html",
-            purpose: "查詢新光各項利變保單宣告利率",
-            account: "免帳號",
-            password: "免密碼",
-            notes: "免登入直接查詢。"
-          },
-          {
-            title: "投資型屬性分析表 (112.4.21啟用)",
-            url: "https://www.skl.com.tw/Promotion/InvestRisk/#",
-            purpose: "新光投資型商品客戶風險屬性評估分析表",
-            account: "免帳號",
-            password: "免密碼",
-            notes: "112.4.21 起全面啟用新版。"
           },
           {
             title: "新光商品：費率表、條款、DM",
@@ -494,6 +468,22 @@
             account: "免帳號",
             password: "免密碼",
             notes: "點選即可進入 PowerBI 畫面檢視。"
+          },
+          {
+            title: "新光宣告利率查詢",
+            url: "https://www.skl.com.tw/91d9af4914.html",
+            purpose: "查詢新光各項利變保單宣告利率",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "免登入直接查詢。"
+          },
+          {
+            title: "投資型屬性分析表 (112.4.21啟用)",
+            url: "https://www.skl.com.tw/Promotion/InvestRisk/#",
+            purpose: "新光投資型商品客戶風險屬性評估分析表",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "⚠️ 做完的風險屬性評估有效期為【一年】，【一年內無法再重新評估】，請務必謹慎填寫！"
           }
         ]
       },
@@ -593,7 +583,7 @@
             purpose: "投資型保單適合性分析線上測驗 (112.4.21啟用)",
             account: "線上評估",
             password: "無",
-            notes: "投保投資型商品前必須施作。"
+            notes: "⚠️ 做完的風險屬性評估有效期為【一年】，【一年內無法再重新評估】，請務必謹慎填寫！"
           },
           {
             title: "保經代行銷支援園地 (商品/表單/保費)",
@@ -609,7 +599,7 @@
             purpose: "線上 KYC 適合度分析捷徑",
             account: "線上填寫",
             password: "無",
-            notes: "快速開啟線上問卷。"
+            notes: "⚠️ 做完的風險屬性評估有效期為【一年】，【一年內無法再重新評估】，請務必謹慎填寫！"
           },
           {
             title: "立碼驗 (適用台幣保單)",
@@ -642,14 +632,6 @@
             account: "同業務員帳號",
             password: "同業務員密碼",
             notes: "快速直達業務員後台。"
-          },
-          {
-            title: "業務員專區 (完整操作手冊)",
-            url: "https://reurl.cc/9WbbOY",
-            purpose: "下載業務員專區完整操作手冊 PDF",
-            account: "免帳號",
-            password: "免密碼",
-            notes: "完整版圖解操作說明手冊。"
           },
           {
             title: "電子保單簽收",
@@ -687,7 +669,7 @@
       },
       {
         id: "first-life",
-        code: "--",
+        code: "A13",
         name: "第一金人壽",
         type: "壽險",
         items: [
@@ -726,20 +708,11 @@
           },
           {
             title: "保險經代服務網站 (保單基資/保全查詢)",
-            url: "https://customer.taiwanlife.com/esponsor_New/eSponsor_Login.aspx",
+            url: "https://esponsor.taiwanlife.com/",
             purpose: "保單基本資料查詢 (客戶保全進度追蹤)",
             account: "身分證字號",
             password: "身分證字號",
             notes: "需先至金鵬官網 / 公共事務 / 申請保險公司帳密。"
-          },
-          {
-            title: "台灣人壽 試算表雲端 (10810版 / 密碼0800 099 850)",
-            url: "https://drive.google.com/folderview?id=1ujETwGC89wmEwgKUJcchayRvq0NzXgS1",
-            purpose: "Google 雲端下載各商品最新試算表",
-            account: "免帳號",
-            password: "密碼：0800 099 850",
-            copyPassword: "0800099850",
-            notes: "雲端開啟密碼請輸入：0800 099 850。"
           },
           {
             title: "台壽手機版建議書 2.0 (建議書能傳LINE)",
@@ -766,7 +739,7 @@
         type: "壽險",
         items: [
           {
-            title: "飛鼠系統【經代專區】",
+            title: "保誠人壽_飛鼠系統連【經代專區】",
             url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
             purpose: "建議書試算與經代服務",
             account: "金鵬帳號",
@@ -858,7 +831,7 @@
         ]
       },
 
-      // -------------------- 產險 (9 家) --------------------
+      // -------------------- 產險 (完整 10 家) --------------------
       {
         id: "wwunion-prop",
         code: "Z01",
@@ -878,7 +851,7 @@
       {
         id: "cki-prop",
         code: "Z02",
-        name: "兆豐產物保險",
+        name: "兆豐產物",
         type: "產險",
         items: [
           {
@@ -895,7 +868,7 @@
       {
         id: "shinkong-prop",
         code: "Z03",
-        name: "新光產物保險",
+        name: "新光產物",
         type: "產險",
         items: [
           {
@@ -913,7 +886,7 @@
       {
         id: "taian-prop",
         code: "Z05",
-        name: "泰安產物保險",
+        name: "泰安產物",
         type: "產險",
         items: [
           {
@@ -937,7 +910,7 @@
       {
         id: "hotai-prop",
         code: "Z06",
-        name: "和泰產物保險",
+        name: "和泰產物",
         type: "產險",
         items: [
           {
@@ -953,7 +926,7 @@
       {
         id: "fubon-prop",
         code: "Z07",
-        name: "富邦產物保險",
+        name: "富邦產物",
         type: "產險",
         items: [
           {
@@ -988,7 +961,7 @@
       {
         id: "chubb-prop",
         code: "Z13",
-        name: "安達產物保險",
+        name: "安達產物",
         type: "產險",
         items: [
           {
@@ -1021,7 +994,7 @@
       {
         id: "cathay-prop",
         code: "Z15",
-        name: "國泰產物保險",
+        name: "國泰產物",
         type: "產險",
         items: [
           {
@@ -1038,7 +1011,7 @@
       {
         id: "tfmi-prop",
         code: "Z16",
-        name: "台灣產物保險",
+        name: "台灣產物",
         type: "產險",
         items: [
           {
@@ -1056,7 +1029,6 @@
 
     let currentTab = "壽險";
 
-    // 切換 壽險 / 產險 分類
     function setTab(tab) {
       currentTab = tab;
       const btnLife = document.getElementById("btn-tab-life");
@@ -1092,13 +1064,12 @@
         badgeLife.className = "text-sm sm:text-base px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200";
         badgeLife.textContent = "點我切換";
 
-        statusLabel.textContent = "產險專區 (9家)";
+        statusLabel.textContent = "產險專區 (10家)";
       }
 
       renderCompanyCards();
     }
 
-    // 渲染第一層：超大字體大卡片
     function renderCompanyCards() {
       const grid = document.getElementById("company-card-grid");
       if (!grid) return;
@@ -1108,33 +1079,23 @@
       grid.innerHTML = list.map(c => `
         <div 
           onclick="openDetail('${c.id}')"
-          class="btn-3d bg-white rounded-3xl p-5 sm:p-6 border-3 border-warm-200 hover:border-warm-600 shadow-sm hover:shadow-md flex items-center justify-between gap-4 cursor-pointer group active:translate-y-0.5"
+          class="btn-3d bg-white rounded-3xl p-5 sm:p-6 border-3 border-warm-200 shadow-sm hover:shadow-xl flex items-center justify-start gap-4 sm:gap-5 cursor-pointer group active:translate-y-0.5 hover:bg-gradient-to-r hover:from-warm-600 hover:to-warm-500 hover:border-warm-700 active:bg-gradient-to-r active:from-warm-600 active:to-warm-500 active:border-warm-700 transition-all duration-150"
         >
-          <!-- 左側：代號與超大公司名稱 -->
-          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
-            <span class="font-mono text-lg sm:text-xl font-black px-3.5 py-1.5 rounded-2xl bg-warm-100 text-warm-900 border-2 border-warm-300 shrink-0">
-              ${c.code}
-            </span>
-            <div class="min-w-0">
-              <h3 class="text-xl sm:text-2xl font-black text-warm-950 group-hover:text-warm-600 transition-colors tracking-tight truncate">
-                ${c.name}
-              </h3>
-              <p class="text-sm sm:text-base font-bold text-warm-700 mt-0.5">
-                收錄 ${c.items.length} 個常用連結與帳密
-              </p>
-            </div>
-          </div>
+          <!-- 左側：代號（維持原有米黃溫潤底色與深色字，不隨懸停反白） -->
+          <span class="font-mono text-lg sm:text-xl font-black px-4 py-2 rounded-2xl bg-warm-100 text-warm-950 border-2 border-warm-300 shadow-xs shrink-0">
+            ${c.code}
+          </span>
 
-          <!-- 右側：引導箭頭鍵 -->
-          <div class="shrink-0 flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-warm-50 group-hover:bg-warm-600 text-warm-900 group-hover:text-white border-2 border-warm-200 group-hover:border-warm-600 transition-all font-black text-sm sm:text-base">
-            <span>點此查看</span>
-            <i class="ph-bold ph-caret-right text-lg sm:text-xl"></i>
+          <!-- 公司超大名稱（懸停時同步轉為高對比純白字） -->
+          <div class="min-w-0 flex-1">
+            <h3 class="text-xl sm:text-2xl font-black text-warm-950 group-hover:text-white group-active:text-white transition-colors tracking-tight truncate">
+              ${c.name}
+            </h3>
           </div>
         </div>
       `).join("");
     }
 
-    // 點擊進入第二層：子項目詳情
     function openDetail(companyId) {
       const company = INSURANCE_DATA.find(c => c.id === companyId);
       if (!company) return;
@@ -1149,20 +1110,18 @@
 
       const container = document.getElementById("detail-items-container");
 
-      // 渲染功能卡片：嚴格貫徹「只有 2 個區塊」
-      // 區塊 1 (上半部)：標題 + 點此開啟
-      // 區塊 2 (下半部)：單一純白規則整合盒（徹底消除碎裂獨立小框，全部寫在同一個大盒子裡）
-      container.innerHTML = company.items.map(item => {
+      container.innerHTML = company.items.map((item, index) => {
         const isExternal = item.url && item.url !== "#";
+        const itemNumber = String(index + 1).padStart(2, '0');
 
         return `
           <article class="bg-white rounded-3xl border-3 border-warm-200 shadow-sm overflow-hidden flex flex-col">
             
-            <!-- 【區塊 1 / 上半部】：功能標題 ＋ 超大【👉 點此開啟】實體按鈕 -->
+            <!-- 【區塊 1 / 上半部】：醒目序號 ＋ 功能標題 ＋ 超大【👉 點此開啟】實體按鈕 -->
             <div class="p-4 sm:p-6 bg-gradient-to-r from-warm-100 via-warm-100 to-warm-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-warm-200">
               <div class="flex items-center gap-3.5">
-                <div class="w-12 h-12 rounded-2xl bg-white text-warm-600 flex items-center justify-center text-2xl font-black shrink-0 border-2 border-warm-300 shadow-xs">
-                  <i class="ph-bold ph-link-simple"></i>
+                <div class="w-12 h-12 rounded-2xl bg-white text-warm-700 font-mono flex items-center justify-center text-xl sm:text-2xl font-black shrink-0 border-2 border-warm-300 shadow-xs">
+                  ${itemNumber}
                 </div>
                 <div>
                   <h4 class="text-xl sm:text-2xl font-black tracking-tight leading-snug text-warm-950">
@@ -1175,7 +1134,6 @@
                 </div>
               </div>
 
-              <!-- 右側大按鈕：👉 點此開啟 -->
               ${isExternal ? `
                 <a 
                   href="${item.url}" 
@@ -1194,7 +1152,7 @@
               `}
             </div>
 
-            <!-- 【區塊 2 / 下半部】：單一純白規則整合盒（徹底消除碎裂小格子，全部大字條列於同一個盒子內） -->
+            <!-- 【區塊 2 / 下半部】：單一純白規則整合盒 -->
             <div class="p-5 sm:p-7 space-y-4 bg-white text-warm-950">
               
               <!-- 條列 1：用途說明 -->
@@ -1255,11 +1213,11 @@
                 </div>
               </div>
 
-              <!-- 條列 4：備註說明 (若有則呈現在同盒底部) -->
+              <!-- 條列 4：備註說明 -->
               ${item.notes ? `
                 <div class="border-t border-warm-150 pt-2">
-                  <div class="p-4 rounded-2xl bg-warm-50 border border-warm-200 flex items-start gap-2.5 text-base sm:text-lg font-bold text-warm-900 leading-relaxed">
-                    <i class="ph-fill ph-lightbulb text-warm-600 text-xl mt-0.5 shrink-0"></i>
+                  <div class="p-4 rounded-2xl ${item.notes.includes('⚠️') ? 'bg-amber-50 border-2 border-amber-400 text-amber-950 shadow-xs' : 'bg-warm-50 border border-warm-200 text-warm-900'} flex items-start gap-2.5 text-base sm:text-lg font-bold leading-relaxed">
+                    <i class="${item.notes.includes('⚠️') ? 'ph-bold ph-warning text-amber-600' : 'ph-fill ph-lightbulb text-warm-600'} text-xl mt-0.5 shrink-0"></i>
                     <span>${item.notes}</span>
                   </div>
                 </div>
@@ -1272,14 +1230,12 @@
       }).join("");
     }
 
-    // 返回第一層主清單
     function goHome() {
       document.getElementById("view-detail").classList.add("hidden");
       document.getElementById("view-home").classList.remove("hidden");
       window.scrollTo({ top: 0, behavior: "instant" });
     }
 
-    // 一鍵複製函式 (相容所有行動瀏覽器)
     function copyText(text, successMsg) {
       try {
         const textarea = document.createElement("textarea");
@@ -1312,7 +1268,6 @@
       }, 2500);
     }
 
-    // 啟動初始化
     window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("view-home").classList.remove("hidden");
       document.getElementById("view-detail").classList.add("hidden");
