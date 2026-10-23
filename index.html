@@ -84,7 +84,7 @@
       transition: all 0.15s ease-out;
     }
     .btn-3d:active {
-      transform: translateY(3px) scale(0.99);
+      transform: translateY(2px) scale(0.99);
       box-shadow: 0 1px 2px rgba(194, 65, 12, 0.3);
     }
 
@@ -102,61 +102,56 @@
 
   <!-- 頂部 Header 導航列 -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-warm-200 shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-3.5 cursor-pointer select-none" onclick="goHome()">
-        <div class="w-12 h-12 rounded-2xl bg-warm-100 border-2 border-warm-300 text-warm-600 flex items-center justify-center font-black text-2xl shadow-xs shrink-0">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 cursor-pointer select-none" onclick="goHome()">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-warm-100 border-2 border-warm-300 text-warm-600 flex items-center justify-center font-black text-2xl shadow-xs shrink-0">
           <i class="ph-bold ph-shield-check"></i>
         </div>
         <div>
-          <h1 class="text-xl sm:text-2xl font-black tracking-tight text-warm-950 leading-tight">
+          <h1 class="text-lg sm:text-2xl font-black tracking-tight text-warm-950 leading-tight">
             金鵬保經 ｜ 業務行政系統快速導航手冊
           </h1>
-          <p class="text-sm sm:text-base text-warm-800 font-bold">壽產險公司登入入口 ． 常用表單與帳號密碼規則彙整</p>
+          <p class="text-xs sm:text-base text-warm-800 font-bold mt-0.5">壽產險公司登入入口 ． 常用表單與帳號密碼規則彙整</p>
         </div>
       </div>
     </div>
   </header>
 
   <!-- 主內容容器 -->
-  <main class="max-w-4xl w-full mx-auto px-3 sm:px-6 pt-4 sm:pt-6 pb-24 flex-1">
+  <main class="max-w-4xl w-full mx-auto px-3 sm:px-6 pt-3 sm:pt-5 pb-24 flex-1">
 
     <!-- ========================================================
          第一層視圖：公司總覽主清單
          ======================================================== -->
-    <div id="view-home" class="space-y-4 sm:space-y-6">
+    <div id="view-home" class="space-y-3.5 sm:space-y-5">
 
-      <!-- 步驟 1 提示卡 -->
-      <div class="bg-white rounded-3xl p-4 sm:p-6 border-2 border-warm-200 shadow-sm flex items-center gap-3.5">
-        <div class="w-12 h-12 rounded-2xl bg-warm-600 text-white flex items-center justify-center text-2xl shrink-0 shadow-md">
+      <!-- 分類提問引導卡（保留橘色手勢圖標與純淨提問，無多餘雜訊） -->
+      <div class="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border-2 border-warm-200 shadow-sm flex items-center gap-3.5">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-warm-600 text-white flex items-center justify-center text-xl sm:text-2xl shrink-0 shadow-md">
           <i class="ph-fill ph-hand-pointing"></i>
         </div>
-        <div>
-          <div class="text-base sm:text-lg font-black text-warm-700 tracking-wider">
-            👉 步驟 1 ． 請先選擇類別
-          </div>
-          <h2 class="text-xl sm:text-2xl font-black text-warm-950 mt-1 leading-snug">
-            您要查詢「壽險」還是「產險」？
-          </h2>
-        </div>
+        <h2 class="text-lg sm:text-2xl font-black text-warm-950 leading-snug">
+          您要查詢「壽險」還是「產險」？
+        </h2>
       </div>
 
       <!-- 壽險 / 產險 超大切換按鈕 -->
-      <div class="grid grid-cols-2 gap-3 sm:gap-4 p-2 bg-warm-100 rounded-3xl border-2 border-warm-200">
+      <div class="grid grid-cols-2 gap-2.5 sm:gap-4 p-1.5 sm:p-2 bg-warm-100 rounded-3xl border-2 border-warm-200">
         
         <!-- 壽險按鈕 (16家) -->
         <button 
           id="btn-tab-life" 
           onclick="setTab('壽險')"
-          class="btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700"
+          class="btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700"
         >
-          <div class="flex items-center gap-2">
-            <i class="ph-bold ph-heartbeat text-2xl"></i>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <i class="ph-bold ph-heartbeat text-xl sm:text-2xl"></i>
             <span>壽險公司 (16)</span>
           </div>
-          <span id="badge-tab-life" class="inline-flex items-center gap-2 text-sm sm:text-base px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner">
-            <span class="relative flex h-4 w-4 items-center justify-center">
+          <span id="badge-tab-life" class="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-base px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner">
+            <span class="relative flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400 breathing-beacon-glow border border-white"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-emerald-400 breathing-beacon-glow border border-white"></span>
             </span>
             <span>目前選取中</span>
           </span>
@@ -166,35 +161,32 @@
         <button 
           id="btn-tab-property" 
           onclick="setTab('產險')"
-          class="btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50"
+          class="btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50"
         >
-          <div class="flex items-center gap-2">
-            <i class="ph-bold ph-car text-2xl text-warm-600"></i>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <i class="ph-bold ph-car text-xl sm:text-2xl text-warm-600"></i>
             <span>產險公司 (10)</span>
           </div>
-          <span id="badge-tab-property" class="text-sm sm:text-base px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200">
+          <span id="badge-tab-property" class="text-xs sm:text-base px-2.5 sm:px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200">
             點我切換
           </span>
         </button>
 
       </div>
 
-      <!-- 步驟 2 醒目提示 -->
-      <div class="flex items-center justify-between pt-2">
-        <div class="flex items-center gap-2.5">
-          <span class="w-8 h-8 rounded-xl bg-warm-600 text-white flex items-center justify-center text-base font-black shadow-xs shrink-0">2</span>
-          <h3 class="text-lg sm:text-xl font-black text-warm-950">
-            👉 步驟 2 ． 點選欲查詢的保險公司：
-          </h3>
-        </div>
-        <span id="status-display-label" class="text-sm sm:text-base font-black px-3.5 py-1 rounded-xl bg-warm-100 text-warm-800 border border-warm-200">
+      <!-- 標題提示：取消步驟二贅字，只保留「點選欲查詢的保險公司：」 -->
+      <div class="flex items-center justify-between pt-1 px-1">
+        <h3 class="text-lg sm:text-2xl font-black text-warm-950 flex items-center gap-1.5">
+          <span>點選欲查詢的保險公司：</span>
+        </h3>
+        <span id="status-display-label" class="text-xs sm:text-base font-black px-3 py-1 rounded-xl bg-warm-100 text-warm-900 border border-warm-300 shadow-2xs">
           壽險專區 (16家)
         </span>
       </div>
 
-      <!-- 保險公司卡片清單 (全大字、無冗餘小字) -->
-      <div id="company-card-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
-        <!-- 由 JavaScript 動態生成超大字卡片 -->
+      <!-- 保險公司卡片清單 (手機與電腦全面採用雙排 2 欄並列排版) -->
+      <div id="company-card-grid" class="grid grid-cols-2 gap-2.5 sm:gap-4">
+        <!-- 由 JavaScript 動態生成雙排卡片 -->
       </div>
 
     </div>
@@ -219,7 +211,7 @@
         <!-- 橘色公司大標題橫幅 (凍結置頂！滑動時永遠看得見，絕不迷路) -->
         <div class="rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 bg-gradient-to-r from-warm-600 to-warm-500 text-white border-2 border-warm-700 shadow-md flex items-center justify-between gap-3">
           <div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
-            <div id="detail-code-badge" class="px-3 py-1 rounded-xl sm:rounded-2xl bg-white/25 border-2 border-white/40 text-white font-mono font-black text-xl sm:text-3xl shadow-inner shrink-0">
+            <div id="detail-code-badge" class="px-2.5 sm:px-3 py-1 rounded-xl sm:rounded-2xl bg-white/25 border-2 border-white/40 text-white font-mono font-black text-lg sm:text-3xl shadow-inner shrink-0">
               A01
             </div>
             <h2 id="detail-company-title" class="text-xl sm:text-3xl font-black text-white tracking-tight truncate">
@@ -1050,30 +1042,30 @@
       const statusLabel = document.getElementById("status-display-label");
 
       const activeBeaconHtml = `
-        <span class="relative flex h-4 w-4 items-center justify-center">
+        <span class="relative flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400 breathing-beacon-glow border border-white"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-emerald-400 breathing-beacon-glow border border-white"></span>
         </span>
         <span>目前選取中</span>
       `;
 
       if (tab === "壽險") {
-        btnLife.className = "btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700";
-        badgeLife.className = "inline-flex items-center gap-2 text-sm sm:text-base px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
+        btnLife.className = "btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700";
+        badgeLife.className = "inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-base px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
         badgeLife.innerHTML = activeBeaconHtml;
 
-        btnProperty.className = "btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50";
-        badgeProperty.className = "text-sm sm:text-base px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200";
+        btnProperty.className = "btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50";
+        badgeProperty.className = "text-xs sm:text-base px-2.5 sm:px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200";
         badgeProperty.textContent = "點我切換";
 
         statusLabel.textContent = "壽險專區 (16家)";
       } else {
-        btnProperty.className = "btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700";
-        badgeProperty.className = "inline-flex items-center gap-2 text-sm sm:text-base px-3.5 py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
+        btnProperty.className = "btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-warm-600 text-white shadow-md border-b-4 border-warm-700";
+        badgeProperty.className = "inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-base px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-xl font-black bg-white/25 text-white border border-white/40 shadow-inner";
         badgeProperty.innerHTML = activeBeaconHtml;
 
-        btnLife.className = "btn-3d py-4 sm:py-5 px-3 rounded-2xl font-black text-lg sm:text-2xl flex flex-col items-center justify-center gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50";
-        badgeLife.className = "text-sm sm:text-base px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200";
+        btnLife.className = "btn-3d py-3.5 sm:py-5 px-2 sm:px-3 rounded-2xl font-black text-base sm:text-2xl flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-white text-warm-900 border-2 border-warm-300 hover:bg-warm-50";
+        badgeLife.className = "text-xs sm:text-base px-2.5 sm:px-3 py-0.5 rounded-lg font-black bg-warm-100 text-warm-800 border border-warm-200";
         badgeLife.textContent = "點我切換";
 
         statusLabel.textContent = "產險專區 (10家)";
@@ -1091,16 +1083,16 @@
       grid.innerHTML = list.map(c => `
         <div 
           onclick="openDetail('${c.id}')"
-          class="btn-3d bg-white rounded-3xl p-5 sm:p-6 border-3 border-warm-200 shadow-sm hover:shadow-xl flex items-center justify-start gap-4 sm:gap-5 cursor-pointer group active:translate-y-0.5 hover:bg-gradient-to-r hover:from-warm-600 hover:to-warm-500 hover:border-warm-700 active:bg-gradient-to-r active:from-warm-600 active:to-warm-500 active:border-warm-700 transition-all duration-150"
+          class="btn-3d bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border-2 sm:border-3 border-warm-200 shadow-sm hover:shadow-xl flex items-center justify-start gap-2.5 sm:gap-4 cursor-pointer group active:translate-y-0.5 hover:bg-gradient-to-r hover:from-warm-600 hover:to-warm-500 hover:border-warm-700 active:bg-gradient-to-r active:from-warm-600 active:to-warm-500 active:border-warm-700 transition-all duration-150"
         >
-          <!-- 左側：代號（維持原有米黃溫潤底色與深色字，不隨懸停反白） -->
-          <span class="font-mono text-lg sm:text-xl font-black px-4 py-2 rounded-2xl bg-warm-100 text-warm-950 border-2 border-warm-300 shadow-xs shrink-0">
+          <!-- 左側：代號（永遠維持米黃底與深色字，不隨懸停反白） -->
+          <span class="font-mono text-sm sm:text-xl font-black px-2 sm:px-3.5 py-1.5 rounded-xl sm:rounded-2xl bg-warm-100 text-warm-950 border-2 border-warm-300 shadow-2xs shrink-0">
             ${c.code}
           </span>
 
-          <!-- 公司超大名稱（懸停時同步轉為高對比純白字） -->
+          <!-- 公司名稱（卡片反色時同步變純白字，超大字且防溢出） -->
           <div class="min-w-0 flex-1">
-            <h3 class="text-xl sm:text-2xl font-black text-warm-950 group-hover:text-white group-active:text-white transition-colors tracking-tight truncate">
+            <h3 class="text-base sm:text-2xl font-black text-warm-950 group-hover:text-white group-active:text-white transition-colors tracking-tight truncate leading-tight">
               ${c.name}
             </h3>
           </div>
