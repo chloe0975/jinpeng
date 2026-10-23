@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金鵬業務專用 快速連結手冊</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      min-height: 100vh;
+    }
+    .touch-btn {
+      touch-action: manipulation;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="text-slate-800 pb-16">
+
+  <!-- 頂部極簡標題列 -->
+  <header class="bg-white/90 backdrop-blur-md border-b border-cyan-100 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 cursor-pointer" onclick="goHome()">
+        <span class="w-9 h-9 rounded-xl bg-cyan-600 text-white flex items-center justify-center text-xl font-black shadow-sm">
+          <i class="ph-bold ph-book-open"></i>
+        </span>
+        <div>
+          <h1 class="text-base sm:text-lg font-black text-slate-800 leading-tight">金鵬保險公司公用帳號密碼與連結速查手冊</h1>
+          <p class="text-[11px] text-cyan-700 font-semibold">限定金鵬內部使用・點選文字或按鈕即可開啟連結</p>
+        </div>
+      </div>
+      <span class="text-xs px-2.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 font-bold">2026版</span>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 pt-4 sm:pt-6">
+
+    <!-- ==============================================
+         第一層：首頁（兩大類切換 + 大按鈕公司列表）
+         ============================================== -->
+    <div id="view-home" class="space-y-4">
+      
+      <!-- 步驟引導與提示橫幅 (加強辨識度) -->
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-3.5 sm:p-4 border-2 border-cyan-300 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm animate-bounce">
+            👉
+          </span>
+          <div>
+            <div class="text-xs font-bold text-cyan-700 tracking-wider">步驟 1 ． 選擇類別</div>
+            <h2 class="text-base sm:text-lg font-black text-slate-800 tracking-tight">
+              請選擇您要查詢「壽險」還是「產險」？
+            </h2>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-1.5 self-start sm:self-auto px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-bold">
+          <i class="ph-bold ph-cursor-click text-sm"></i>
+          <span>點下方大按鈕即可切換</span>
+        </div>
+      </div>
+
+      <!-- 頂部超大實體感分類切換按鈕 -->
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 p-2 bg-slate-200/80 rounded-2xl border-2 border-slate-300 shadow-inner">
+        
+        <!-- 壽險按鈕 -->
+        <button 
+          id="tab-life" 
+          onclick="setTab('壽險')" 
+          class="touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-gradient-to-b from-cyan-500 to-teal-600 text-white shadow-lg shadow-cyan-900/25 border-b-4 border-teal-800 scale-[1.02]"
+        >
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-2xl shrink-0">
+            <i class="ph-bold ph-heartbeat"></i>
+          </div>
+          <div class="text-center sm:text-left">
+            <div class="text-lg sm:text-xl leading-tight">壽險公司 (16)</div>
+            <div id="badge-life" class="text-[11px] font-bold text-teal-100 flex items-center justify-center sm:justify-start gap-1 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-300 inline-block"></span>
+              <span>目前選取中</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- 產險按鈕 -->
+        <button 
+          id="tab-property" 
+          onclick="setTab('產險')" 
+          class="touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-white text-slate-600 hover:text-cyan-800 hover:bg-cyan-50/80 border-2 border-slate-300 border-b-4 border-b-slate-400 active:border-b-2 shadow-sm"
+        >
+          <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-2xl shrink-0 text-slate-500">
+            <i class="ph-bold ph-car"></i>
+          </div>
+          <div class="text-center sm:text-left">
+            <div class="text-lg sm:text-xl leading-tight">產險公司 (9)</div>
+            <div id="badge-property" class="text-[11px] font-bold text-slate-400 flex items-center justify-center sm:justify-start gap-1 mt-0.5">
+              <span>點我切換</span>
+            </div>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- 步驟 2 引導標題 -->
+      <div class="flex items-center justify-between pt-2 px-1">
+        <div class="flex items-center gap-2 text-xs sm:text-sm font-black text-slate-700">
+          <span class="w-5 h-5 rounded-md bg-teal-600 text-white flex items-center justify-center text-xs">2</span>
+          <span>再點選欲查詢的保險公司（點入查看所有連結與帳密）：</span>
+        </div>
+        <span class="text-xs font-bold text-cyan-700" id="current-type-label">壽險專區</span>
+      </div>
+
+      <!-- 公司大按鈕清單 -->
+      <div id="company-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-1">
+        <!-- 由 JavaScript 產生大方塊按鈕 -->
+      </div>
+    </div>
+
+    <!-- ==============================================
+         第二層：公司細項頁（返回鍵 + 超大點選按鈕 + 說明卡）
+         ============================================== -->
+    <div id="view-detail" class="hidden space-y-4">
+      
+      <!-- 頂部返回按鈕 -->
+      <button onclick="goHome()" class="touch-btn w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-cyan-50 border-2 border-cyan-300 text-cyan-900 font-black text-base shadow-sm flex items-center justify-center gap-2 transition active:scale-[0.99]">
+        <i class="ph-bold ph-arrow-left text-xl"></i>
+        <span>⬅ 返回保險公司清單</span>
+      </button>
+
+      <!-- 目前查看的公司名稱標題橫幅 -->
+      <div id="detail-banner" class="bg-gradient-to-r from-cyan-600 to-teal-700 text-white p-5 rounded-2xl shadow-md flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span id="detail-badge" class="font-mono font-black text-sm px-2.5 py-1 rounded-lg bg-white/20">A01</span>
+          <h2 id="detail-title" class="text-xl sm:text-2xl font-black tracking-tight">國泰人壽</h2>
+        </div>
+        <span id="detail-count-badge" class="text-xs bg-white/20 px-3 py-1 rounded-full font-bold">1 個項目</span>
+      </div>
+
+      <!-- 細項卡片列表容器 -->
+      <div id="actions-container" class="space-y-4 pt-1">
+        <!-- 由 JavaScript 產生 -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 複製成功的極簡提示 Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-xl transition-all duration-200 opacity-0 pointer-events-none transform translate-y-3 flex items-center gap-2">
+    <i class="ph-bold ph-check-circle text-teal-300 text-lg"></i>
+    <span id="toast-text">已複製</span>
+  </div>
+
+  <script>
+    // 完整內建金鵬資料庫（純淨核心）
+    const DATA = [
+      // ========== 壽險公司 ==========
+      {
+        id: "cathay-a01",
+        code: "A01",
+        name: "國泰人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "表單下載區",
+            url: "https://www.cathaylife.com.tw/cathaylife/services/info/insurance-changing",
+            bg: "from-emerald-500 to-teal-600",
+            icon: "ph-file-arrow-down",
+            purpose: "契變、保全、理賠表單下載",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "直接點擊開啟官網表單下載區即可使用"
+          }
+        ]
+      },
+      {
+        id: "kgi-a02",
+        code: "A02",
+        name: "凱基人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "飛鼠系統【經代專區】",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "打建議書、下載表單、查詢客戶資料",
+            account: "金鵬內部帳號",
+            password: "個人密碼",
+            notes: "連進飛鼠後，請點選【經代專區】"
+          },
+          {
+            name: "i-Broker 系統入口",
+            url: "https://ssob.apps.ocp4.kgilife.com.tw/SSOB/?service=https://ipartner.kgilife.com.tw/IPRUIX/cas/doLogin/&sysCode=IBR",
+            bg: "from-blue-600 to-indigo-600",
+            icon: "ph-sign-in",
+            purpose: "凱基業務員後台系統",
+            account: "BR+身分證號",
+            copyAccount: "BR",
+            password: "首次登入密碼寄至信箱",
+            notes: "金鵬登錄年份請自金鵬系統查詢"
+          }
+        ]
+      },
+      {
+        id: "transglobe-a03",
+        code: "A03",
+        name: "全球人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "飛鼠系統【經代專區】",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "查詢客戶資料、建議書、各項行銷工具(DM/試算表/表單/條款)",
+            account: "金鵬帳號",
+            password: "金鵬密碼",
+            notes: "連進飛鼠後請點選【經代專區】"
+          },
+          {
+            name: "MPOS 行動投保 (OTP簡訊認證)",
+            url: "https://mpos.transglobe.com.tw/app3/#/login-br",
+            bg: "from-teal-600 to-cyan-600",
+            icon: "ph-device-mobile-camera",
+            purpose: "行動投保、電子簽名送件",
+            account: "W58-身分證號",
+            copyAccount: "W58-",
+            password: "首次密碼寄至信箱 (公用帳號已取消)",
+            notes: "帳號格式為 (W58-)+(身分證號)，需手機收 OTP 簡訊認證"
+          },
+          {
+            name: "全球行政作業常見 QA (Canva)",
+            url: "https://tglbr.my.canva.site/dahjsnsljvc",
+            bg: "from-amber-500 to-orange-500",
+            icon: "ph-question",
+            purpose: "行政疑難解答 (加保/繳費帳號/展延回條/高齡錄音AI念稿/電訪預約)",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "連假或非上班時間答案通通有"
+          },
+          {
+            name: "全球保戶專區",
+            url: "https://eservice.transglobe.com.tw/cs/Logon/Logon.xhtml",
+            bg: "from-indigo-600 to-violet-600",
+            icon: "ph-user-circle",
+            purpose: "線上辦理契變、借款、理賠聯盟鏈、保單查詢",
+            account: "保戶身分驗證",
+            password: "保戶自主設定",
+            notes: "引導客戶線上自助服務專區"
+          }
+        ]
+      },
+      {
+        id: "nanshan-a04",
+        code: "A04",
+        name: "南山人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "南山人壽 表單下載區",
+            url: "https://www.nanshanlife.com.tw/web/form.html?openExternalBrowser=1",
+            bg: "from-blue-600 to-cyan-600",
+            icon: "ph-download-simple",
+            purpose: "下載要保書、保全契變與理賠表單",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "直接點選開啟瀏覽器下載"
+          },
+          {
+            name: "朝陽人壽專區",
+            url: "https://www.nanshanlife.com.tw/web/rateS.aspx",
+            bg: "from-teal-600 to-emerald-600",
+            icon: "ph-sun",
+            purpose: "朝陽人壽舊保單費率與專區查詢",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "原朝陽人壽保單相關規範查詢"
+          }
+        ]
+      },
+      {
+        id: "hontai-a05",
+        code: "A05",
+        name: "宏泰人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "飛鼠系統【經代專區】",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "宏泰線上建議書系統、常用各項表單下載",
+            account: "金鵬帳號",
+            password: "金鵬密碼",
+            notes: "連進飛鼠後點選【經代專區】"
+          },
+          {
+            name: "通路查詢系統 (商品DM文件下載)",
+            url: "https://life.hontai.com.tw/HontaiGP/coagent.aspx",
+            bg: "from-emerald-600 to-teal-600",
+            icon: "ph-folder-open",
+            purpose: "商品 DM、費率表與行銷公文下載",
+            account: "B86001 (各單位代號)",
+            copyAccount: "B86001",
+            password: "密碼：R80141072",
+            copyPassword: "R80141072",
+            notes: "宏泰公用帳密，點擊按鈕可直接一鍵複製"
+          },
+          {
+            name: "客戶常用各項表單下載",
+            url: "https://www.hontai.com.tw/18pages/download",
+            bg: "from-sky-600 to-cyan-600",
+            icon: "ph-file-text",
+            purpose: "宏泰客戶常用保全、契變申請書下載",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "官網表單專區免帳密"
+          },
+          {
+            name: "投資風險屬性評估",
+            url: "https://www.hontai.com.tw/Policyalter/pageOpinionDefault.aspx",
+            bg: "from-indigo-600 to-blue-600",
+            icon: "ph-chart-pie",
+            purpose: "投資型保單客戶風險問卷評估",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "投資型商品送件前必做評估"
+          }
+        ]
+      },
+      {
+        id: "farglory-a06",
+        code: "A06",
+        name: "遠雄人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "飛鼠系統【經代專區】",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "建議書試算與經代服務",
+            account: "金鵬帳號",
+            password: "金鵬密碼",
+            notes: "連進飛鼠後點選【經代專區】"
+          },
+          {
+            name: "遠雄官網 (經代登入入口)",
+            url: "https://bw.fglife.com.tw/bw/loginBroker.action",
+            bg: "from-rose-600 to-red-600",
+            icon: "ph-sign-in",
+            purpose: "遠雄業務員經代作業平台",
+            account: "身分證字號",
+            password: "簡訊發送 (30分鐘內需登入)",
+            notes: "公用帳號已取消，需申請個人帳號並以手機收簡訊驗證"
+          },
+          {
+            name: "宣告利率專區",
+            url: "https://www.fglife.com.tw/IRTableA.html",
+            bg: "from-amber-500 to-orange-500",
+            icon: "ph-percent",
+            purpose: "遠雄利變商品即時與歷史宣告利率",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "直接點擊查詢最新利率"
+          },
+          {
+            name: "遠雄停售條款專區",
+            url: "https://www.fglife.com.tw/initGoodsTermsC.html",
+            bg: "from-slate-600 to-slate-800",
+            icon: "ph-archive",
+            purpose: "停售商品保單條款資料庫",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "快速調閱已停售之合約條款"
+          }
+        ]
+      },
+      {
+        id: "shinkong-a07",
+        code: "A07",
+        name: "新光人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "新光人壽 PRM (飛鼠經代)",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "新光 PRM 建議書系統與客戶管理",
+            account: "金鵬帳號",
+            password: "金鵬密碼",
+            notes: "連進飛鼠後點選【經代專區】"
+          },
+          {
+            name: "新光宣告利率查詢",
+            url: "https://www.skl.com.tw/91d9af4914.html",
+            bg: "from-amber-500 to-orange-500",
+            icon: "ph-percent",
+            purpose: "各險種月度宣告利率表",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "免登入直接查詢"
+          },
+          {
+            name: "投資型屬性分析表 (112.4.21啟用)",
+            url: "https://www.skl.com.tw/Promotion/InvestRisk/#",
+            bg: "from-blue-600 to-cyan-600",
+            icon: "ph-chart-line",
+            purpose: "投資風險分析問卷",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "新光投資型商品線上屬性分析"
+          },
+          {
+            name: "新光商品：費率表、條款、DM",
+            url: "https://brm.skl.com.tw/PRMweb/ProductNRateInfo.html",
+            bg: "from-emerald-600 to-teal-600",
+            icon: "ph-files",
+            purpose: "下載現售商品條款、DM、費率表",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "官方 BRM 資源庫快速取得"
+          },
+          {
+            name: "原台新專區：要保書試算表 (PowerBI)",
+            url: "https://app.powerbi.com/view?r=eyJrIjoiMzBmNTMzOWEtN2Q4My00MmZjLWIwMGMtZmZiZmMwNzBiZTAzIiwidCI6IjM3OTAxYzJjLThjYTctNDZhOS1iYWRjLTcyMTZmOTM0ZWY5YSIsImMiOjEwfQ%3D%3D",
+            bg: "from-purple-600 to-indigo-600",
+            icon: "ph-table",
+            purpose: "原台新專案要保書與試算表下載",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "PowerBI 報表頁面直接選取"
+          }
+        ]
+      },
+      {
+        id: "fubon-a08",
+        code: "A08",
+        name: "富邦人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "富邦業務員專區登入",
+            url: "https://agent.fubonlife.com.tw/Agent/WebModule/Accounts/Input.asp",
+            bg: "from-sky-600 to-blue-700",
+            icon: "ph-sign-in",
+            purpose: "富邦業務員後台系統入口",
+            account: "身分證號",
+            password: "預設：身分證號",
+            notes: "初次登入帳號與密碼皆為身分證號"
+          },
+          {
+            name: "利變壽險宣告利率專區",
+            url: "https://www.fubon.com/life/product/interest-rate/rate-change/?item=FAJ",
+            bg: "from-teal-600 to-emerald-600",
+            icon: "ph-trend-up",
+            purpose: "富邦利變型壽險宣告利率查詢",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "即時查閱各月宣告利率"
+          }
+        ]
+      },
+      {
+        id: "twfhclife-a09",
+        code: "A09",
+        name: "臺銀人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "臺銀人壽 保經代專區 (商品試算表)",
+            url: "https://btlife.twfhclife.com.tw/",
+            bg: "from-emerald-700 to-teal-700",
+            icon: "ph-calculator",
+            purpose: "經代專區作業與下載商品試算表",
+            account: "A144+身分證號 (代號: btlife 或 144)",
+            copyAccount: "A144",
+            password: "密碼：btlilife (試算表密碼同登入密碼)",
+            copyPassword: "btlilife",
+            notes: "各地區代號為 btlife 或 144"
+          },
+          {
+            name: "商品文件業務專區 (簡介/條款/費率/要保書)",
+            url: "https://share.google/TV4ueFUdKpMqKNBYj",
+            bg: "from-blue-600 to-cyan-600",
+            icon: "ph-google-drive-logo",
+            purpose: "雲端下載商品文件與要保書",
+            account: "免帳號",
+            password: "請輸入存取密碼：28428384",
+            copyPassword: "28428384",
+            notes: "進入雲端連結後請輸入【28428384】即可查看"
+          },
+          {
+            name: "臺銀人壽 商品資訊官網",
+            url: "https://www.twfhclife.com.tw/",
+            bg: "from-slate-700 to-slate-900",
+            icon: "ph-globe",
+            purpose: "官方商品簡介與公告",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "臺銀人壽官方網站"
+          }
+        ]
+      },
+      {
+        id: "chubb-a10",
+        code: "A10",
+        name: "安達人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "要保書、保全文件下載區 (免帳密)",
+            url: "https://life.chubb.com/tw-zh/partners/sales-support-for-broker.aspx",
+            bg: "from-teal-600 to-cyan-600",
+            icon: "ph-file-arrow-down",
+            purpose: "下載最新要保書與保全契變文件",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "行銷支援專區免帳密直接下載"
+          },
+          {
+            name: "保經代業務員專區",
+            url: "https://www.chubblife-vul.com.tw/acelifevul/house/agentLogin.do",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-sign-in",
+            purpose: "安達業務員個人後台",
+            account: "JP+身分證號 (首次發放)",
+            copyAccount: "JP",
+            password: "首次密碼寄至信箱",
+            notes: "帳號格式為 JP 加上身分證字號"
+          },
+          {
+            name: "線上建議書網址 (限電腦或平板)",
+            url: "https://esfp.chubblife-vul.com.tw/illustration/login",
+            bg: "from-blue-600 to-indigo-600",
+            icon: "ph-desktop",
+            purpose: "線上製作建議書 (無帳密可直接按試算進入)",
+            account: "同「業務員專區」帳密",
+            password: "同「業務員專區」帳密",
+            notes: "提醒：手機無法開啟，請用電腦或平板進入！"
+          },
+          {
+            name: "投資型-客戶適合性分析 (KYC)",
+            url: "https://www.chubblife-vul.com.tw/acelifevul/kyc/quiz.action",
+            bg: "from-indigo-600 to-purple-600",
+            icon: "ph-clipboard-text",
+            purpose: "投資型保單線上 KYC 分析問卷",
+            account: "線上評估",
+            password: "112.4.21啟用",
+            notes: "完成後有效依安達規定"
+          },
+          {
+            name: "保經代行銷支援園地 (商品/表單/保費)",
+            url: "https://reurl.cc/lpaaLd",
+            bg: "from-purple-600 to-pink-600",
+            icon: "ph-sparkle",
+            purpose: "行銷支援整合捷徑庫",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "短網址直達行銷支援資源"
+          },
+          {
+            name: "立碼驗 (台幣保單專用)",
+            url: "https://reurl.cc/N2NN1e",
+            bg: "from-emerald-600 to-teal-600",
+            icon: "ph-fingerprint",
+            purpose: "台幣保單身分認證工具",
+            account: "免帳號",
+            password: "線上認證",
+            notes: "適用台幣保單快速認證"
+          },
+          {
+            name: "線上建議書 (回條/錄音小幫手)",
+            url: "https://reurl.cc/GaGGZv",
+            bg: "from-amber-600 to-orange-600",
+            icon: "ph-microphone",
+            purpose: "簽收回條與錄音小幫手",
+            account: "業務員帳密",
+            password: "業務員密碼",
+            notes: "建議書延伸功能捷徑"
+          },
+          {
+            name: "投資管家 (基金與標的)",
+            url: "https://reurl.cc/yOOz7D",
+            bg: "from-sky-600 to-cyan-600",
+            icon: "ph-chart-line-up",
+            purpose: "基金標的走勢與淨值查詢",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "查閱各保單連結標的最新資訊"
+          },
+          {
+            name: "電子保單簽收",
+            url: "https://reurl.cc/YDkk7X",
+            bg: "from-rose-600 to-red-600",
+            icon: "ph-check-circle",
+            purpose: "引導保戶進行電子保單簽收",
+            account: "保戶驗證",
+            password: "OTP",
+            notes: "客戶電子簽收直達捷徑"
+          },
+          {
+            name: "業務員專區 (完整操作手冊下載)",
+            url: "https://reurl.cc/9WbbOY",
+            bg: "from-slate-700 to-slate-900",
+            icon: "ph-book",
+            purpose: "下載安達業務員系統完整操作說明 PDF",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "新手必看操作手冊"
+          }
+        ]
+      },
+      {
+        id: "aia-a11",
+        code: "A11",
+        name: "友邦人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "要保書、保全文件下載區",
+            url: "https://portal.aia.com.tw/BABKPortal/DocDownload",
+            bg: "from-rose-600 to-red-700",
+            icon: "ph-file-arrow-down",
+            purpose: "友邦經代文件下載平台",
+            account: "帳號：壽險登錄證號",
+            password: "密碼：自行設定",
+            notes: "登入個人壽險證號即可下載各式文件"
+          }
+        ]
+      },
+      {
+        id: "first-life",
+        code: "--",
+        name: "第一金人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "第一金人壽 (只收保全件，無新契約)",
+            url: "#",
+            bg: "from-slate-500 to-slate-700",
+            icon: "ph-warning-octagon",
+            purpose: "重要行政限制提醒",
+            account: "無新契約",
+            password: "無新契約",
+            notes: "⚠️ 特別注意：第一金人壽目前只收保全件，無新契約受理作業。"
+          }
+        ]
+      },
+      {
+        id: "taiwan-life-a17",
+        code: "A17",
+        name: "台灣人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "台灣人壽 金鵬電子書 (密碼: 0800099850)",
+            url: "https://ebook.taiwanlife.com/bb/byCompanyCode.aspx?companycode=JP#",
+            bg: "from-amber-600 to-orange-600",
+            icon: "ph-book-bookmark",
+            purpose: "商品資訊 / 試算表 / 投保規則 / 要保書 / 表單 / 報備",
+            account: "免帳號",
+            password: "密碼：0800099850",
+            copyPassword: "0800099850",
+            notes: "台壽金鵬專用電子書，進入請輸入密碼 0800099850"
+          },
+          {
+            name: "台灣人壽 行動保 (需向雅渝申請)",
+            url: "https://proposalmanager.taiwanlife.com/Login.aspx",
+            bg: "from-rose-600 to-red-600",
+            icon: "ph-device-mobile",
+            purpose: "iPad/線上行動投保",
+            account: "身分證字號",
+            password: "自行設定",
+            notes: "需先向內勤【雅渝】申請開通個人專屬帳號"
+          },
+          {
+            name: "保險經代服務網站 (保單進度/保全查詢)",
+            url: "https://customer.taiwanlife.com/esponsor_New/eSponsor_Login.aspx",
+            bg: "from-teal-600 to-cyan-600",
+            icon: "ph-user-list",
+            purpose: "保單基本資料查詢、客戶保全進度追蹤",
+            account: "帳號：身分證字號",
+            password: "密碼：身分證字號",
+            notes: "需先至金鵬官網【公共事務 / 申請保險公司帳密】開通"
+          },
+          {
+            name: "台灣人壽 試算表雲端 (10810版 / 密碼0800 099 850)",
+            url: "https://drive.google.com/folderview?id=1ujETwGC89wmEwgKUJcchayRvq0NzXgS1",
+            bg: "from-blue-600 to-cyan-600",
+            icon: "ph-google-drive-logo",
+            purpose: "Google 雲端下載各商品 Excel 試算表",
+            account: "免帳號",
+            password: "密碼：0800 099 850",
+            copyPassword: "0800099850",
+            notes: "雲端存取或解壓密碼：0800 099 850"
+          },
+          {
+            name: "台壽手機版建議書 2.0 (可傳LINE)",
+            url: "https://proposal.taiwanlife.com/",
+            bg: "from-emerald-600 to-green-600",
+            icon: "ph-chat-circle-dots",
+            purpose: "手機快速出建議書，並可直接分享至客戶 LINE",
+            account: "同原來設定",
+            password: "同原來設定",
+            notes: "手機專用建議書 2.0，帳密同原台壽系統"
+          },
+          {
+            name: "台灣人壽 宣告利率專區",
+            url: "https://www.taiwanlife.com/investment-rate-interest-rate",
+            bg: "from-slate-700 to-slate-800",
+            icon: "ph-percent",
+            purpose: "即時查詢各月宣告利率",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "免登入直接查詢"
+          }
+        ]
+      },
+      {
+        id: "prudential-a21",
+        code: "A21",
+        name: "英國保誠人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "飛鼠系統【經代專區】",
+            url: "https://jinpeng.ice.com.tw/Default_jinpeng.aspx",
+            bg: "from-cyan-600 to-blue-600",
+            icon: "ph-desktop",
+            purpose: "建議書試算與經代服務",
+            account: "金鵬帳號",
+            password: "金鵬密碼",
+            notes: "連進飛鼠後點選【經代專區】"
+          },
+          {
+            name: "經代專區 / 常用表單與商品建議書 (免帳密)",
+            url: "https://www.eservice.pcalife.com.tw/agent",
+            bg: "from-rose-600 to-red-600",
+            icon: "ph-file-text",
+            purpose: "免帳密下載最新常用表單與商品建議書",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "直接點擊進入免帳號密碼"
+          },
+          {
+            name: "ePOS 線上建議書、要保文件系統",
+            url: "https://online.pcalife.com.tw/eposc/login?locale=zh_TW&renew=true&service=https%3A%2F%2Fonline.pcalife.com.tw%2Fepos%2F",
+            bg: "from-red-600 to-rose-700",
+            icon: "ph-sign-in",
+            purpose: "線上建議書製作與要保流程",
+            account: "登錄證字號",
+            password: "信箱認證碼",
+            notes: "首次使用：點選【申請銷售人員e化服務】➔ 輸入登錄證字號 ➔ 公司選【金鵬保經】➔ 輸入確認碼 ➔ 信箱收取認證碼完成"
+          },
+          {
+            name: "保誠人壽 忠誠客戶查詢",
+            url: "https://www.eservice.pcalife.com.tw/eservice/c/cp",
+            bg: "from-slate-700 to-slate-900",
+            icon: "ph-crown",
+            purpose: "查詢客戶是否符合保誠忠誠保戶資格",
+            account: "客戶資料查詢",
+            password: "無",
+            notes: "查核忠誠客戶專案資格"
+          }
+        ]
+      },
+      {
+        id: "allianz-a22",
+        code: "A22",
+        name: "安聯人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "『安聯 e 路通』系統入口",
+            url: "https://es.allianz.com.tw/partner/PartnershipPortal/",
+            bg: "from-blue-700 to-indigo-700",
+            icon: "ph-sign-in",
+            purpose: "安聯核心業務員作業平台",
+            account: "安聯業務代號",
+            password: "自行設定密碼",
+            notes: "經代合作夥伴專屬入口"
+          },
+          {
+            name: "投資型-客戶風險屬性評估 (KYC)",
+            url: "https://es.allianz.com.tw/customer/kyc/main",
+            bg: "from-amber-600 to-rose-600",
+            icon: "ph-shield-warning",
+            purpose: "線上風險評估問卷 (112.4.21啟用)",
+            account: "客戶身分評估",
+            password: "無",
+            notes: "⚠️ 做完的風險評估有效期為【一年】，一年內【無法再重新評估】，請務必審慎填寫！"
+          }
+        ]
+      },
+      {
+        id: "yuanta-a23",
+        code: "A23",
+        name: "元大人壽",
+        type: "壽險",
+        items: [
+          {
+            name: "服務通路平台 (查客戶/商品/表單/試算)",
+            url: "https://mcsp.yuantalife.com.tw/mcsp/Verify.aspx?x=logout",
+            bg: "from-sky-700 to-blue-800",
+            icon: "ph-user-focus",
+            purpose: "客戶進度查詢、商品(費率/條款/DM)、下載表單與試算表",
+            account: "帳號：身分證字號",
+            password: "密碼：首次寄至信箱",
+            notes: "請先上金鵬官網【行動辦公室 / 申請保險公司帳密】"
+          },
+          {
+            name: "元大人壽 網頁版建議書 (免安裝軟體)",
+            url: "https://wips.yuantalife.com.tw/login",
+            bg: "from-teal-600 to-cyan-600",
+            icon: "ph-browser",
+            purpose: "免下載軟體，瀏覽器直接打建議書",
+            account: "帳號：身分證字號",
+            password: "同服務通路平台帳密",
+            notes: "至金鵬官網【公共事務 / 申請保險公司帳密】開通"
+          },
+          {
+            name: "元大人壽 ASP建議書 (需下載至電腦版)",
+            url: "#",
+            bg: "from-slate-700 to-slate-900",
+            icon: "ph-desktop-tower",
+            purpose: "安裝於個人電腦之 ASP 建議書系統帳密",
+            account: "身分證號：VAT00000 ｜ 帳號：VAT00000",
+            copyAccount: "VAT00000",
+            password: "密碼：VAT00000 (大小寫不分)",
+            copyPassword: "VAT00000",
+            notes: "電腦版 ASP 系統三欄皆輸入【VAT00000】即可登入"
+          }
+        ]
+      },
+
+      // ========== 產險公司 ==========
+      {
+        id: "wwunion-prop",
+        code: "產險",
+        name: "旺旺友聯產物",
+        type: "產險",
+        items: [
+          {
+            name: "旺旺友聯 線上繳費平台",
+            url: "https://b2cweb.wwunion.com/EPYSMS/epysms/101/default.action",
+            bg: "from-red-600 to-orange-600",
+            icon: "ph-credit-card",
+            purpose: "客戶線上刷卡與保費繳費授權",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "直接點擊進入輸入保單/繳款編號線上付款"
+          }
+        ]
+      },
+      {
+        id: "cki-prop",
+        code: "產險",
+        name: "兆豐產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "兆豐產物 旅平險線上投保",
+            url: "https://cki.propra.com",
+            bg: "from-purple-700 to-indigo-700",
+            icon: "ph-airplane-tilt",
+            purpose: "旅行平安險線上即時投保出單",
+            account: "通路：6AH-A1 ｜ 帳號：身分證字號",
+            copyAccount: "6AH-A1",
+            password: "密碼：登錄證字號 (或以桂綾提供的為準)",
+            notes: "通路代號請輸入 6AH-A1"
+          }
+        ]
+      },
+      {
+        id: "shinkong-prop",
+        code: "產險",
+        name: "新光產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "新光產物 旅平險線上投保 (B2B)",
+            url: "https://b2b.skinsurance.com.tw/skerp/",
+            bg: "from-cyan-700 to-teal-700",
+            icon: "ph-shield-check",
+            purpose: "旅平險 B2B 線上投保系統",
+            account: "通路：K025 ｜ 使用者：產險登錄證字號",
+            copyAccount: "K025",
+            password: "第一次預設密碼為：0",
+            copyPassword: "0",
+            notes: "通路代號請輸入 K025，初次登入密碼僅為單一數字 0"
+          }
+        ]
+      },
+      {
+        id: "taian-prop",
+        code: "產險",
+        name: "泰安產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "泰安產物 旅平險線上投保 (帳密規範)",
+            url: "#",
+            bg: "from-emerald-700 to-teal-800",
+            icon: "ph-airplane",
+            purpose: "旅平險登入規範查閱",
+            account: "代號：產險業務員登錄證字號",
+            password: "密碼：產險登錄證號【後四碼】",
+            notes: "帳號為個人產險證號，密碼為證號後四碼"
+          },
+          {
+            name: "各險種商品簡介、要保書、條款及申請書",
+            url: "https://www.taian.com.tw/CustomerService/FilesDownload",
+            bg: "from-teal-600 to-cyan-600",
+            icon: "ph-folder-arrow-down",
+            purpose: "泰安各式險種要保書與條款下載",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "官網表單專區免帳密直接下載"
+          }
+        ]
+      },
+      {
+        id: "fubon-prop",
+        code: "產險",
+        name: "富邦產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "富邦產物 車險線上系統 (B2B)",
+            url: "https://b2b.518fb.com/ec/b2b_index.jsp",
+            bg: "from-blue-700 to-sky-700",
+            icon: "ph-car-profile",
+            purpose: "汽車、機車強制險與任意險線上試算出單",
+            account: "公司別：FlyingPower1 (勿更動) ｜ 帳號：產險登錄證字號",
+            copyAccount: "FlyingPower1",
+            password: "密碼：Fb123456",
+            copyPassword: "Fb123456",
+            notes: "第一欄公司別請維持 FlyingPower1，密碼輸入 Fb123456"
+          }
+        ]
+      },
+      {
+        id: "tmnewa-prop",
+        code: "產險",
+        name: "新安東京海上產險",
+        type: "產險",
+        items: [
+          {
+            name: "新安東京 旅平險線上系統",
+            url: "https://b2btm.propra.com/index.htm?proprasr=-773511243&TMCSRFTOKEN=null",
+            bg: "from-amber-600 to-red-600",
+            icon: "ph-airplane-takeoff",
+            purpose: "旅行平安險線上報價與出單",
+            account: "通路代號：6AH-A1 ｜ 帳號：身份證字號(大寫)",
+            copyAccount: "6AH-A1",
+            password: "密碼：以業推人員提供為準",
+            notes: "通路代號請輸入 6AH-A1，密碼請洽業推"
+          }
+        ]
+      },
+      {
+        id: "chubb-prop",
+        code: "產險",
+        name: "安達產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "安達產物 旅平險線上投保",
+            url: "https://tpeb2b.chubb.com.tw/",
+            bg: "from-teal-600 to-cyan-700",
+            icon: "ph-globe-hemisphere-east",
+            purpose: "旅平險線上報價與投保",
+            account: "通路代號：6AH ｜ 帳號：身分證字號",
+            copyAccount: "6AH",
+            password: "密碼：寄至信箱",
+            notes: "通路代號請輸入 6AH，密碼請收信"
+          },
+          {
+            name: "安達產物 旅平險文件下載區",
+            url: "https://www.chubb.com.tw/tw-zh/partners/travel-safety-insurance.html",
+            bg: "from-cyan-600 to-sky-600",
+            icon: "ph-files",
+            purpose: "下載旅平險要保書與 DM",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "免帳密直接下載"
+          },
+          {
+            name: "安達產物 各式理賠文件下載區",
+            url: "https://www.chubb.com.tw/tw-zh/customer-service/claim-forms-for-individual.html",
+            bg: "from-sky-700 to-indigo-700",
+            icon: "ph-first-aid",
+            purpose: "產險意外與旅遊理賠申請表單",
+            account: "免帳號",
+            password: "免密碼",
+            notes: "理賠申請必備文件專區"
+          }
+        ]
+      },
+      {
+        id: "cathay-prop",
+        code: "產險",
+        name: "國泰產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "國泰產物 BTB 線上操作入口",
+            url: "https://b2b.cathay-ins.com.tw/INSBAWeb/html/CM/loginb2b.jsp",
+            bg: "from-emerald-700 to-teal-800",
+            icon: "ph-sign-in",
+            purpose: "BTB 產險核心線上系統",
+            account: "帳號：身分證字號 (請至國泰找熊思琪申請)",
+            password: "密碼：abcd12 (需自行變更密碼)",
+            copyPassword: "abcd12",
+            notes: "登入時【來源】請務必選擇【保經代人員】"
+          }
+        ]
+      },
+      {
+        id: "tfmi-prop",
+        code: "產險",
+        name: "台灣產物保險",
+        type: "產險",
+        items: [
+          {
+            name: "台灣產物 旅平險線上報價投保",
+            url: "https://dp.tfmi.com.tw/DigitalPortal/Account/Login",
+            bg: "from-teal-600 to-emerald-700",
+            icon: "ph-airplane",
+            purpose: "旅平線上即時報價與投保",
+            account: "初次登錄：統編-身份證",
+            password: "密碼：123456 (登入後記得變更並記住)",
+            copyPassword: "123456",
+            notes: "首次密碼為 123456，變更完成後請妥善牢記"
+          }
+        ]
+      }
+    ];
+
+    let currentTab = "壽險";
+
+    // 切換 壽險 / 產險 分類
+    function setTab(type) {
+      currentTab = type;
+      const tabLife = document.getElementById("tab-life");
+      const tabProperty = document.getElementById("tab-property");
+      const badgeLife = document.getElementById("badge-life");
+      const badgeProperty = document.getElementById("badge-property");
+      const currentTypeLabel = document.getElementById("current-type-label");
+
+      if (type === "壽險") {
+        // 壽險選中狀態 (立體深色發光大按鈕)
+        tabLife.className = "touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-gradient-to-b from-cyan-500 to-teal-600 text-white shadow-lg shadow-cyan-900/25 border-b-4 border-teal-800 scale-[1.02]";
+        tabLife.querySelector("div:first-child").className = "w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-2xl shrink-0";
+        badgeLife.className = "text-[11px] font-bold text-teal-100 flex items-center justify-center sm:justify-start gap-1 mt-0.5";
+        badgeLife.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-300 inline-block animate-pulse"></span><span>目前選取中</span>';
+
+        // 產險未選中狀態 (立體白色按鈕)
+        tabProperty.className = "touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-white text-slate-600 hover:text-cyan-800 hover:bg-cyan-50/80 border-2 border-slate-300 border-b-4 border-b-slate-400 active:border-b-2 shadow-sm";
+        tabProperty.querySelector("div:first-child").className = "w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-2xl shrink-0 text-slate-500";
+        badgeProperty.className = "text-[11px] font-bold text-slate-400 flex items-center justify-center sm:justify-start gap-1 mt-0.5";
+        badgeProperty.innerHTML = '<span>點我切換</span>';
+
+        if (currentTypeLabel) currentTypeLabel.textContent = "壽險專區 (16家)";
+      } else {
+        // 產險選中狀態 (立體深色發光大按鈕)
+        tabProperty.className = "touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-gradient-to-b from-teal-500 to-cyan-700 text-white shadow-lg shadow-teal-900/25 border-b-4 border-cyan-900 scale-[1.02]";
+        tabProperty.querySelector("div:first-child").className = "w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-2xl shrink-0";
+        badgeProperty.className = "text-[11px] font-bold text-teal-100 flex items-center justify-center sm:justify-start gap-1 mt-0.5";
+        badgeProperty.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-300 inline-block animate-pulse"></span><span>目前選取中</span>';
+
+        // 壽險未選中狀態 (立體白色按鈕)
+        tabLife.className = "touch-btn relative py-4 sm:py-5 px-3 rounded-xl font-black flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 transition-all duration-200 bg-white text-slate-600 hover:text-cyan-800 hover:bg-cyan-50/80 border-2 border-slate-300 border-b-4 border-b-slate-400 active:border-b-2 shadow-sm";
+        tabLife.querySelector("div:first-child").className = "w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-2xl shrink-0 text-slate-500";
+        badgeLife.className = "text-[11px] font-bold text-slate-400 flex items-center justify-center sm:justify-start gap-1 mt-0.5";
+        badgeLife.innerHTML = '<span>點我切換</span>';
+
+        if (currentTypeLabel) currentTypeLabel.textContent = "產險專區 (9家)";
+      }
+
+      renderCompanies();
+    }
+
+    // 渲染第一層：公司超大按鈕方塊 (加入更明顯的立體點選按鈕特徵)
+    function renderCompanies() {
+      const container = document.getElementById("company-grid");
+      const list = DATA.filter(c => c.type === currentTab);
+
+      container.innerHTML = list.map(c => `
+        <button 
+          onclick="openDetail('${c.id}')"
+          class="touch-btn text-left p-4 sm:p-5 rounded-2xl bg-white border-2 border-cyan-300 hover:border-cyan-600 border-b-4 border-b-cyan-500 active:border-b-2 shadow-sm hover:shadow-md transition active:scale-[0.98] flex flex-col justify-between min-h-[120px] sm:min-h-[135px] group"
+        >
+          <div class="flex items-center justify-between w-full">
+            <span class="font-mono text-xs font-black px-2.5 py-1 rounded-lg bg-cyan-100 text-cyan-900 border border-cyan-200">
+              ${c.code}
+            </span>
+            <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+              ${c.items.length} 個連結
+            </span>
+          </div>
+          <div class="mt-2">
+            <div class="text-base sm:text-xl font-black text-slate-800 group-hover:text-cyan-700 transition leading-snug">
+              ${c.name}
+            </div>
+            <div class="text-[11px] text-cyan-700 font-bold mt-1.5 flex items-center gap-1">
+              <span>👆 點擊查看帳密與連結</span>
+              <i class="ph-bold ph-caret-right"></i>
+            </div>
+          </div>
+        </button>
+      `).join("");
+    }
+
+    // 開啟第二層：單一公司細項
+    function openDetail(companyId) {
+      const company = DATA.find(c => c.id === companyId);
+      if (!company) return;
+
+      document.getElementById("view-home").classList.add("hidden");
+      document.getElementById("view-detail").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "instant" });
+
+      document.getElementById("detail-badge").textContent = company.code;
+      document.getElementById("detail-title").textContent = company.name;
+      document.getElementById("detail-count-badge").textContent = `共 ${company.items.length} 個常用項目`;
+
+      const container = document.getElementById("actions-container");
+
+      container.innerHTML = company.items.map((item, index) => {
+        const isLink = item.url && item.url !== "#";
+
+        return `
+          <div class="space-y-2">
+            
+            <!-- 1. 超大彩色點選按鈕 (統一標示 👉 點此開啟) -->
+            ${isLink ? `
+              <a 
+                href="${item.url}" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="touch-btn w-full py-4 px-5 rounded-2xl bg-gradient-to-r ${item.bg} text-white font-black text-base sm:text-lg shadow-md hover:shadow-lg flex items-center justify-between transition active:scale-[0.98]"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-lg shrink-0">
+                    <i class="ph-bold ${item.icon}"></i>
+                  </span>
+                  <span class="text-left leading-snug">${item.name}</span>
+                </div>
+                <div class="flex items-center gap-1 text-xs bg-white/20 hover:bg-white/30 px-3.5 py-2 rounded-xl font-black shrink-0 ml-2 transition">
+                  <span>👉 點此開啟</span>
+                </div>
+              </a>
+            ` : `
+              <div class="w-full py-4 px-5 rounded-2xl bg-gradient-to-r ${item.bg} text-white font-black text-base sm:text-lg shadow-md flex items-center justify-between opacity-95 cursor-default">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-lg shrink-0">
+                    <i class="ph-bold ${item.icon}"></i>
+                  </span>
+                  <span class="text-left leading-snug">${item.name}</span>
+                </div>
+                <span class="text-xs bg-white/20 px-3 py-1.5 rounded-full font-bold shrink-0 ml-2">注意事項</span>
+              </div>
+            `}
+
+            <!-- 2. 下方白底說明小卡 -->
+            <div class="bg-white rounded-2xl p-4 border border-cyan-100 shadow-sm space-y-2 text-xs sm:text-sm">
+              
+              <!-- 用途說明 -->
+              <div class="flex items-start gap-2">
+                <span class="font-bold text-slate-400 shrink-0">【用途說明】</span>
+                <span class="font-bold text-slate-800 leading-snug">${item.purpose}</span>
+              </div>
+
+              <!-- 帳號與一鍵複製 -->
+              <div class="flex items-center justify-between gap-2 pt-1.5 border-t border-slate-100">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="font-bold text-slate-400 shrink-0">【帳號規則】</span>
+                  <span class="font-mono font-bold text-slate-700 truncate">${item.account}</span>
+                </div>
+                ${item.copyAccount ? `
+                  <button onclick="copy('${item.copyAccount}')" class="touch-btn shrink-0 px-2.5 py-1 rounded-lg bg-cyan-50 hover:bg-cyan-600 text-cyan-800 hover:text-white font-bold text-xs border border-cyan-200 transition">
+                    複製 ${item.copyAccount}
+                  </button>
+                ` : ''}
+              </div>
+
+              <!-- 密碼與一鍵複製 -->
+              <div class="flex items-center justify-between gap-2 pt-1.5 border-t border-slate-100">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="font-bold text-slate-400 shrink-0">【密碼規則】</span>
+                  <span class="font-bold text-amber-900 truncate">${item.password}</span>
+                </div>
+                ${item.copyPassword ? `
+                  <button onclick="copy('${item.copyPassword}')" class="touch-btn shrink-0 px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-bold text-xs border border-amber-200 transition">
+                    複製密碼
+                  </button>
+                ` : ''}
+              </div>
+
+              <!-- 備註說明 -->
+              ${item.notes ? `
+                <div class="pt-1.5 border-t border-slate-100 text-[12px] text-slate-500 font-medium">
+                  💡 ${item.notes}
+                </div>
+              ` : ''}
+
+            </div>
+
+          </div>
+        `;
+      }).join("");
+    }
+
+    // 返回首頁
+    function goHome() {
+      document.getElementById("view-detail").classList.add("hidden");
+      document.getElementById("view-home").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    // 複製文字功能
+    function copy(text) {
+      try {
+        const t = document.createElement("textarea");
+        t.value = text;
+        t.style.position = "fixed";
+        t.style.opacity = "0";
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+        showToast(`已複製：${text}`);
+      } catch (e) {
+        showToast("複製失敗，請手動複製");
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      const text = document.getElementById("toast-text");
+      text.textContent = msg;
+
+      toast.classList.remove("opacity-0", "translate-y-3");
+      toast.classList.add("opacity-100", "translate-y-0");
+
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("opacity-100", "translate-y-0");
+        toast.classList.add("opacity-0", "translate-y-3");
+      }, 1800);
+    }
+
+    // 初始化啟動
+    window.addEventListener("DOMContentLoaded", () => {
+      renderCompanies();
+    });
+  </script>
+</body>
+</html>
